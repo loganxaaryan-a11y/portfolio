@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Logan — I turn visitors into conversations</title>
+<meta name="description" content="Websites and small apps for restaurants, studios, shops and a few ideas of my own.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0a;--ink:#f1efe9;--mute:#9b9891;--line:rgba(241,239,233,.16);--card:#141414;--ac:#1effab;--on:#04150d;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--font:"Inter","Helvetica Neue",Arial,system-ui,sans-serif;color-scheme:dark}
+:root[data-theme="light"]{--bg:#f6f7f9;--ink:#0d1014;--mute:#59626d;--line:rgba(13,16,20,.14);--card:#fff;--ac:#0a7a4d;--on:#fff;color-scheme:light}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.5;-webkit-text-size-adjust:100%}
+a{color:inherit}button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
+.w{max-width:1160px;margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;flex-wrap:wrap}
+.nm{font-weight:800;font-size:1.2rem}
+nav{display:flex;gap:6px 22px;align-items:center;flex-wrap:wrap}
+nav a{text-decoration:none;font-weight:600;color:var(--mute)}nav a:hover{color:var(--ink)}
+.tg{background:none;border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer}
+.hero{display:grid;gap:40px;padding:clamp(30px,8vw,100px) 0 clamp(40px,8vw,90px);align-items:center}
+@media(min-width:860px){.hero{grid-template-columns:1.25fr 1fr}}
+h1{font-weight:800;font-size:clamp(2.9rem,9.6vw,7.2rem);line-height:.93;letter-spacing:-.04em;margin:0}
+.lede{max-width:44ch;color:var(--mute);font-size:clamp(1.05rem,2.3vw,1.3rem);margin:24px 0 0}
+.chat{display:grid;gap:12px;justify-items:start;max-width:360px;justify-self:center;transform:rotate(-2.5deg)}
+.bub{background:var(--ac);color:var(--on);padding:12px 16px;border-radius:20px 20px 20px 6px;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+.bub:nth-child(2){justify-self:end;border-radius:20px 20px 6px 20px;background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.bub small{display:block;font-weight:400;opacity:.75;margin-top:3px;font-size:.78rem}
+section{padding:clamp(28px,6vw,70px) 0}
+h2{font-weight:800;font-size:clamp(1.9rem,5.4vw,3.4rem);letter-spacing:-.03em;line-height:1;margin:0 0 12px}
+.sub{color:var(--mute);max-width:54ch;margin:0 0 30px}
+.feats{display:grid;gap:18px}
+@media(min-width:900px){.feats{grid-template-columns:repeat(3,1fr)}}
+.feat{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:14px;background:var(--pb);color:var(--pf);border-radius:24px;padding:18px 18px 24px;transition:transform .25s}
+.feat:hover{transform:translateY(-4px)}.feat:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
+.feat svg,.card svg{display:block;width:100%;height:auto;border-radius:14px}
+.feat h3{margin:6px 6px 0;font-size:1.7rem;letter-spacing:-.02em;line-height:1.05}
+.feat .k,.card .k{margin:0 6px;font-size:.92rem;opacity:.78}
+.met{margin:4px 6px 0;font-weight:800;font-size:clamp(2.6rem,6vw,3.6rem);letter-spacing:-.04em;line-height:1}
+.met small{display:block;font-size:.95rem;font-weight:400;letter-spacing:0;opacity:.8;margin-top:4px}
+.grid{display:grid;gap:22px 18px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:10px;transition:transform .25s}
+.card:hover{transform:translateY(-4px)}.card:focus-visible{outline:3px solid var(--ac);outline-offset:6px}
+.card svg{border:1px solid var(--line)}
+.card h3{margin:2px 2px 0;font-size:1.25rem;letter-spacing:-.01em}
+.card .k{margin:0 2px;color:var(--mute);opacity:1}
+dialog{width:min(940px,94vw);max-height:90vh;margin:auto;border:0;border-radius:26px;padding:0;background:var(--bg);color:var(--ink);overflow:auto}
+dialog::backdrop{background:rgba(4,7,10,.65)}
+.mh{background:var(--pb);color:var(--pf);padding:30px clamp(20px,4vw,40px) 26px;position:relative}
+.mh h2{margin:0 52px 6px 0;font-size:clamp(2rem,6vw,3.6rem)}.mh p{margin:0;opacity:.8}
+.x{position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:50%;border:2px solid currentColor;background:none;cursor:pointer;font-size:1.3rem;line-height:1}
+.mb{padding:26px clamp(20px,4vw,40px) 34px;display:grid;gap:26px}
+.cols{display:grid;gap:22px 40px}@media(min-width:760px){.cols{grid-template-columns:1.4fr 1fr}}
+.d{margin:0;font-size:1.12rem;max-width:56ch}
+.ch{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0;padding:0;list-style:none}
+.ch li{border:1px solid var(--line);border-radius:999px;padding:5px 13px;font-size:.9rem;font-weight:600}
+.fl{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.fl li{border-top:1px solid var(--line);padding-top:8px}
+.gal{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;margin:0 calc(-1*clamp(20px,4vw,40px));padding-inline:clamp(20px,4vw,40px)}
+.gal>*{flex:0 0 min(80%,520px);scroll-snap-align:start}
+.gal svg,.gal img{display:block;width:100%;height:auto;border-radius:16px;border:1px solid var(--line)}
+.vis{justify-self:start;font-weight:700;text-decoration:none;background:var(--ac);color:var(--on);border-radius:999px;padding:13px 26px}
+footer{padding:clamp(40px,8vw,100px) 0 56px}
+.ln{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.ln a{font-weight:600;text-decoration:none;border:2px solid var(--ink);border-radius:999px;padding:11px 22px}.ln a:hover{background:var(--ink);color:var(--bg)}
+.sc{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:14px;display:grid;place-items:center;font-weight:700;box-shadow:inset 0 0 0 1px rgba(128,128,128,.28)}
+.sc svg{display:block;border:0!important;border-radius:0!important}
+.pp{opacity:0;animation:pop 7s infinite both}
+.w{position:absolute;opacity:0}
+@keyframes pop{0%,8%{opacity:0;transform:translateY(8px)}16%,86%{opacity:1;transform:none}96%,100%{opacity:0}}
+@keyframes sw{0%,100%{background:#3b3b3b}25%{background:#6b3a5a}50%{background:#5d6638}75%{background:#6e6354}}
+@keyframes br{0%,100%{transform:scale(.55)}50%{transform:scale(1)}}
+@keyframes rot{to{transform:rotate(360deg)}}
+@keyframes mq{to{transform:translateX(-50%)}}
+@keyframes tw{0%,100%{opacity:.15}50%{opacity:1}}
+@keyframes dr{from{stroke-dashoffset:400}to{stroke-dashoffset:0}}
+@keyframes cyc{0%,3%{opacity:0}8%,22%{opacity:1}27%,100%{opacity:0}}
+@keyframes ci{0%,45%{opacity:1}50%,100%{opacity:0}}
+@keyframes co{0%,50%{opacity:0}55%,95%{opacity:1}100%{opacity:0}}
+@keyframes ping{0%{transform:scale(.4);opacity:1}100%{transform:scale(3);opacity:0}}
+@keyframes fill{0%,100%{background:transparent}35%,65%{background:currentColor}}
+@keyframes bl{0%,55%{opacity:0}65%,90%{opacity:1}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.sc *{animation:none!important}.pp{opacity:1}.sc .w:first-of-type{opacity:1}}
+</style>
+</head>
+<body>
+<div class="w">
+<header><span class="nm">Logan</span><nav><a href="#work">Work</a><a href="#products">Products</a><a href="#contact">Contact</a><button class="tg" id="th" type="button" aria-label="Switch light or dark theme">Theme</button></nav></header>
+<div class="hero">
+<div><h1>I turn visitors into conversations.</h1><p class="lede">I build websites and small apps for restaurants, studios and shops, so a tap on a phone becomes a message in their WhatsApp.</p></div>
+<div class="chat" aria-label="Examples of enquiries sent from my sites">
+<div class="bub">Hi, I’m interested in booking a free one-day trial class.<small>Sent from the Shraddha Yoga Space site</small></div>
+<div class="bub">I’d like a quote for limousine or chauffeur service.<small>Sent from the Vantage site</small></div>
+<div class="bub">Hi, I’d like to discuss a custom piece.<small>Sent from the Unique Ideas site</small></div>
+</div></div>
+<section id="work"><h2>Selected work</h2><p class="sub">Three sites that turned a busy shop, restaurant and club network into something a customer can use in seconds.</p><div class="feats" id="feats"></div></section>
+<section><h2>More for clients</h2><p class="sub">Studios, makers, personal brands and concepts I built to show what a local business could have.</p><div class="grid" id="more"></div></section>
+<section id="products"><h2>Products and experiments</h2><p class="sub">Apps I built for myself, from a bedtime sound library to a trading signal desk.</p><div class="grid" id="prod"></div></section>
+<footer id="contact"><h2>Let’s work together.</h2><p class="sub">Tell me what you sell and how customers reach you today. I’ll send back a working preview, not a proposal.</p><div class="ln"><a href="https://github.com/loganxaaryan-a11y" target="_blank" rel="noopener">See the code on GitHub</a><a href="https://x.com/loganxbtc" target="_blank" rel="noopener">Message me on X</a></div></footer>
+</div>
+<dialog id="dlg" aria-labelledby="mt"><div id="mc"></div></dialog>
+<script>
+var P=[
+{n:"Hari Handloom House",g:"f",kind:"Wholesale textiles, Ahmedabad",u:"https://harihandloomhouse.in",bg:"#192e39",fg:"#f1e6d3",line:"Bed and bath, beautifully supplied",m:["68","ranges across 4 brands"],t:["Catalogue","Wholesale enquiry","WhatsApp flow"],d:"Branded and own-label bed and bath textiles for hotels, retailers and gift buyers. Every range opens into sizes and reference prices, and each enquiry reaches the team on WhatsApp already written.",f:["Separate pages for hospitality and gifting","Brands: Bombay Dyeing, Rosepetal, Lotus, Sarla","Zoomable photos and a showroom page"]},
+{n:"Badster Burgers",g:"f",kind:"Late-night burger shop, Maninagar",u:"https://badsterburgers.in",bg:"#07090c",fg:"#ffb800",line:"Bring your appetite",m:["67","menu items, ordered on WhatsApp"],t:["Menu","Live ordering","Combo builder"],d:"A vegetarian burger spot open until 2:45 AM. Customers build an order from the full menu, add combos and extras, and send it to the restaurant in one tap.",f:["Search and category filters","Combo builder for fries and drinks","Opening hours built into ordering"]},
+{n:"A.S. Pool & Snooker Club",g:"f",kind:"Club network, Gujarat",u:"https://loganxaaryan-a11y.github.io/a-s-pool-snooker-creative-v4/",bg:"#062b27",fg:"#e5f5c0",line:"One break. 13 clubs.",m:["13","clubs across 4 cities"],t:["Directory","Bilingual","3D intro"],d:"One site for a snooker and pool club with 13 branches. Visitors find the nearest club, get directions in one tap and learn the rules of five games.",f:["English and Gujarati","Search by city, nearest-club button","Optional 3D break intro"]},
+{n:"Shraddha Yoga Space",g:"m",kind:"Yoga studio, Isanpur",u:"https://shraddhayoga.space",bg:"#dfe8d8",fg:"#2d3b2a",line:"Make yoga part of your life",t:["Bookings","Pricing","Reviews"],d:"A studio that needed trial bookings, not just information. Every class time is one tap to a WhatsApp chat with the batch already filled in.",f:["7 regular batches plus weight-loss yoga","Membership plans with savings shown","Group-session and teacher-training enquiries"],u2:1},
+{n:"Unique Ideas",g:"m",kind:"Resin art studio",u:"https://loganxaaryan-a11y.github.io/unique-ideas/",bg:"#faf7f1",fg:"#5a3b12",line:"Made by hand. Made for you.",t:["Catalogue","Custom orders"],d:"A resin artist’s catalogue of finished work, where every piece is a starting point for a personalised order.",f:["24 finished pieces you can filter","Custom enquiry sent through WhatsApp","Concept designs kept apart from finished work"]},
+{n:"Vantage",g:"m",kind:"Concept: chauffeur service, Vancouver",u:"https://loganxaaryan-a11y.github.io/vantage/",bg:"#0e1a2b",fg:"#e6c98a",line:"Arrive beyond expectation",t:["Quote flow","Concept"],d:"A limousine and chauffeur service for Vancouver and Whistler. A short journey form turns into a ready-to-send WhatsApp quote request.",f:["Airport, wedding, corporate and VIP services","Four fleet classes","Quote-based, no payment taken"]},
+{n:"The Salon",g:"m",kind:"Concept: hair studio, Toronto",u:"https://loganxaaryan-a11y.github.io/laymon-hair-salon/",bg:"#f4f4f2",fg:"#1b1b1b",line:"Appointment-led hair studio",t:["Booking","Template"],d:"An appointment-led site for a hair studio, made generic so I can adapt it for any salon owner in days.",f:["Cuts, colour, braids, waxing and facials","Reusable salon template"]},
+{n:"Denyse Clara",g:"m",kind:"Personal site, Toronto",u:"https://denyseclaracares.ca",bg:"#4b2536",fg:"#f6e8ee",line:"Rooted in community",t:["Personal brand","Storytelling"],d:"A personal site for a social worker, advocate and student leader, covering her work, governance roles and the values behind them.",f:["Welcomes visitors in six languages","Built around her story and leadership"]},
+{n:"Binge",g:"p",kind:"Movie, TV and anime tracker",u:"https://binge-logan-d475.vercel.app",bg:"#000000",fg:"#ffffff",line:"Discover and track what to watch",t:["App","Five data sources"],d:"One place to discover and track movies, TV and anime. No sign-in, and it installs to your home screen like an app.",f:["TMDB, AniList, TVmaze, OMDb and Watchmode","Streaming availability from JustWatch","Installable on a phone"]},
+{n:"A Dot",g:"p",kind:"Eight-game play assessment",u:"https://loganxaaryan-a11y.github.io/a-dot/",bg:"#fafaf7",fg:"#111111",line:"Eight games, one observed run",t:["Game","Report"],d:"Eight short games that read how you play rather than score you. Every insight points back to something you did, and nothing is framed as a diagnosis.",f:["Evidence behind every line","Downloadable full report"]},
+{n:"Dream Portals",g:"p",kind:"Ambient sleep journeys",u:"https://loganxaaryan-a11y.github.io/dream-portals/",bg:"#000000",fg:"#b9c4ff",line:"Tap a destination and close your eyes",t:["Audio","Sleep"],d:"Ten ambient bedtime journeys, from a bus to the moon to a lighthouse watch-room, each with its own soundscape that fades to silence.",f:["10 journeys","Body unwind and mind shuffle add-ons"]},
+{n:"Synthesize",g:"p",kind:"News desk filed by sector",u:"https://curatednewslawl.grok.me",bg:"#12110e",fg:"#e8dfc9",line:"Filed by what the story is about",t:["Live data","News"],d:"A news desk that files the day’s stories by what they’re about, not who published them, with live market strips beside each sector.",f:["Six desks: technology, crypto, conflict, oil, minerals, markets","Sources and method pages"]},
+{n:"DIVERGE",g:"p",kind:"Trading signal desk (in progress)",u:"https://diverge.grok.me",bg:"#090b0e",fg:"#7cf5c8",line:"Fade the extreme when volume is thin",t:["Trading","In progress"],d:"A signal desk for Hyperliquid perpetuals. It fades a six-hour extreme only when volume is thin, and logs every call it makes.",f:["Rule-based calls with a running log","Live crypto and stock movers"]},
+{n:"Stashbook",g:"p",kind:"Private cannabis journal, 19+",u:"https://stashbook.lawliett.chatgpt.site",bg:"#17251b",fg:"#d6e7c3",line:"A journal of your own taste",t:["App","Age gate"],d:"A private journal for craft cannabis. Save photos, rate products and remember the details of every batch. It opens behind a 19+ gate.",f:["367-flower catalogue","Age gate on entry"]}
+];
+function E(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+var S={
+"Hari Handloom House":function(){return '<div style="position:absolute;inset:13%;border-radius:10px;animation:sw 9s infinite"></div><div style="position:absolute;inset:13%;border-radius:10px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.16) 0 7px,transparent 7px 24px)"></div><span style="position:absolute;left:17%;bottom:18%;font-size:.8rem">Morden Stripes, four colours</span>'},
+"Badster Burgers":function(){var r=[["Cheeto Fries","₹140"],["Honey Lime Espresso","₹180"],["Make it a combo","+₹80"]];return '<div style="width:80%;display:grid;gap:8px;font-size:.8rem">'+r.map(function(x,i){return '<div class="pp" style="animation-delay:'+i*.6+'s;display:flex;justify-content:space-between;border-bottom:1px solid;padding-bottom:5px"><span>'+x[0]+'</span><span>'+x[1]+'</span></div>'}).join("")+'<div class="pp" style="animation-delay:1.8s;background:#25d366;color:#04150d;border-radius:99px;padding:9px;text-align:center">Send ₹400 order on WhatsApp</div></div>'},
+"A.S. Pool & Snooker Club":function(){var s="";for(var i=0;i<13;i++){s+='<i style="position:absolute;left:'+(8+i*37%80)+'%;top:'+(14+i*53%62)+'%;width:9px;height:9px;margin:-4px;border-radius:50%;background:currentColor"><b style="position:absolute;inset:0;border-radius:50%;border:2px solid currentColor;animation:ping 3s infinite;animation-delay:'+i*.23+'s"></b></i>'}return s+'<span style="position:absolute;left:6%;bottom:6%;font-size:1.3rem">13 clubs, 4 cities</span>'},
+"Shraddha Yoga Space":function(){return '<div style="width:50%;aspect-ratio:1;border-radius:50%;background:currentColor;animation:br 8s ease-in-out infinite"></div><span class="w" style="bottom:11%;animation:ci 8s infinite">Breathe in</span><span class="w" style="bottom:11%;animation:co 8s infinite">Breathe out</span>'},
+"Unique Ideas":function(){return '<div style="width:54%;aspect-ratio:1;border-radius:50%;border:7px solid currentColor;position:relative;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.7),rgba(90,59,18,.08))"><i style="position:absolute;left:50%;top:50%;width:3px;height:40%;margin-left:-1.5px;background:currentColor;transform-origin:50% 0;animation:rot 12s linear infinite"></i><i style="position:absolute;left:50%;top:50%;width:3px;height:28%;margin-left:-1.5px;background:currentColor;transform-origin:50% 0;animation:rot 144s linear infinite"></i></div>'},
+"Vantage":function(){return '<svg viewBox="0 0 200 150" style="width:92%"><path d="M20 118C70 130 90 40 178 32" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 5" opacity=".6"/><circle r="5" fill="currentColor"><animateMotion dur="5s" repeatCount="indefinite" path="M20 118C70 130 90 40 178 32"/></circle><text x="12" y="140" font-size="10" fill="currentColor">YVR</text><text x="138" y="22" font-size="10" fill="currentColor">Whistler</text></svg>'},
+"The Salon":function(){var s='<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:7px;width:78%">';for(var i=0;i<12;i++)s+='<i style="height:26px;border:1.5px solid;border-radius:7px;'+(i%3==1?'animation:fill 6s infinite;animation-delay:'+i*.45+'s':'')+'"></i>';return s+'</div>'},
+"Denyse Clara":function(){return ["Hello","Bonjour","Hola","Aaniin"].map(function(w,i){return '<span class="w" style="font-size:2.2rem;font-weight:800;animation:cyc 10s infinite;animation-delay:'+i*2.5+'s">'+w+'</span>'}).join("")},
+"Binge":function(){var s="";for(var i=0;i<16;i++)s+='<i style="flex:none;width:54px;height:80px;border-radius:7px;background:hsl('+(i%8)*47+',50%,42%)"></i>';return '<div style="display:flex;gap:10px;width:max-content;animation:mq 14s linear infinite">'+s+'</div>'},
+"A Dot":function(){var q="M25 25H55V115H85V55H115V125H145V45H175";return '<svg viewBox="0 0 200 150" style="width:90%"><path d="M10 10H190V140H10Z M40 10V90M70 40V140M100 10V70M130 60V140M160 10V100" fill="none" stroke="currentColor" stroke-width="2" opacity=".25"/><path pathLength="400" d="'+q+'" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="400" style="animation:dr 7s linear infinite"/><circle r="5" fill="currentColor"><animateMotion dur="7s" repeatCount="indefinite" path="'+q+'"/></circle></svg>'},
+"Dream Portals":function(){var s="";for(var i=0;i<16;i++)s+='<circle cx="'+(5+i*53%190)+'" cy="'+(5+i*29%80)+'" r="1.3" fill="currentColor" style="animation:tw 3s infinite;animation-delay:'+i*.3+'s"/>';return '<svg viewBox="0 0 200 150" style="width:100%;height:100%">'+s+'<circle cx="160" cy="38" r="18" fill="currentColor" opacity=".9"/><g><rect width="26" height="12" rx="3" fill="currentColor"/><rect x="4" y="3" width="5" height="4" fill="#000"/><rect x="11" y="3" width="5" height="4" fill="#000"/><rect x="18" y="3" width="5" height="4" fill="#000"/><animateTransform attributeName="transform" type="translate" values="10 120;140 48" dur="9s" repeatCount="indefinite"/></g></svg>'},
+"Synthesize":function(){var t="BTC +0.6% &nbsp;&nbsp; ETH +0.6% &nbsp;&nbsp; SOL -0.1% &nbsp;&nbsp; QQQ -3.5% &nbsp;&nbsp; XLE +1.9% &nbsp;&nbsp; NVDA -4.2% &nbsp;&nbsp; ";return '<div style="position:absolute;top:14%;left:0;right:0;overflow:hidden;font-size:.74rem;white-space:nowrap"><div style="width:max-content;animation:mq 16s linear infinite">'+t+t+'</div></div><div style="width:78%;display:grid;gap:11px;margin-top:18%">'+["Technology","Crypto","Oil"].map(function(x,i){return '<div class="pp" style="animation-delay:'+i*.6+'s;display:flex;gap:8px;align-items:center;font-size:.8rem"><b style="width:72px">'+x+'</b><i style="flex:1;height:6px;border-radius:3px;background:currentColor;opacity:.4"></i></div>'}).join("")+'</div>'},
+"DIVERGE":function(){return '<svg viewBox="0 0 200 150" style="width:92%"><path pathLength="400" d="M8 110L30 98L50 112L75 74L98 84L125 36L148 52L192 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="400" style="animation:dr 6s ease-out infinite"/><circle cx="125" cy="36" r="6" fill="none" stroke="currentColor" stroke-width="2" style="animation:bl 6s infinite"/><text x="133" y="30" font-size="10" fill="currentColor" style="animation:bl 6s infinite">fade</text></svg>'},
+"Stashbook":function(){return '<span style="position:absolute;top:18%;font-size:.8rem">Rate this batch</span><div style="display:flex;gap:6px;font-size:1.9rem">'+[1,2,3,4,5].map(function(i){return '<span class="pp" style="animation-delay:'+i*.5+'s">★</span>'}).join("")+'</div><span style="position:absolute;bottom:16%;font-size:.8rem">367 flowers in the catalogue</span>'}
+};
+function scene(p){var f=S[p.n];return '<div class="sc" style="background:'+p.bg+';color:'+p.fg+'" role="img" aria-label="Animated preview of the '+E(p.n)+' site">'+(f?f():"")+'</div>'}
+function mock(p,v){if(!v)return scene(p);
+var f=p.fg,s='<svg viewBox="0 0 400 300" role="img" aria-label="Illustration of the '+E(p.n)+' site" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="300" fill="'+p.bg+'"/><rect x="20" y="18" width="64" height="9" rx="4" fill="'+f+'"/><rect x="250" y="19" width="30" height="7" rx="3" fill="'+f+'" opacity=".4"/><rect x="292" y="19" width="30" height="7" rx="3" fill="'+f+'" opacity=".4"/><rect x="334" y="14" width="46" height="16" rx="8" fill="'+f+'"/>';
+if(v==0){var z=Math.max(20,Math.min(40,330/(p.n.length*.56)));s+='<circle cx="350" cy="230" r="110" fill="'+f+'" opacity=".1"/><text x="24" y="120" font-family="Inter,system-ui,sans-serif" font-weight="800" font-size="'+z+'" fill="'+f+'">'+E(p.n)+'</text><text x="24" y="150" font-family="system-ui,sans-serif" font-size="13" fill="'+f+'" opacity=".8">'+E(p.line)+'</text><rect x="24" y="178" width="118" height="36" rx="18" fill="'+f+'"/><rect x="24" y="250" width="352" height="2" fill="'+f+'" opacity=".25"/>'}
+else if(v==1){for(var i=0;i<3;i++){s+='<rect x="'+(24+i*120)+'" y="62" width="108" height="110" rx="12" fill="'+f+'" opacity=".16"/><rect x="'+(24+i*120)+'" y="184" width="70" height="9" rx="4" fill="'+f+'"/><rect x="'+(24+i*120)+'" y="202" width="100" height="7" rx="3" fill="'+f+'" opacity=".45"/>'}s+='<rect x="24" y="236" width="352" height="36" rx="18" fill="'+f+'" opacity=".2"/>'}
+else{s+='<rect x="24" y="70" width="230" height="46" rx="16" fill="'+f+'" opacity=".2"/><rect x="146" y="130" width="230" height="46" rx="16" fill="'+f+'"/><rect x="24" y="190" width="200" height="46" rx="16" fill="'+f+'" opacity=".2"/><rect x="24" y="258" width="352" height="26" rx="13" fill="'+f+'" opacity=".12"/>'}
+return s+'</svg>'}
+function sty(p){return '--pb:'+p.bg+';--pf:'+p.fg}
+function box(id,g){document.getElementById(id).innerHTML=P.map(function(p,i){return p.g!==g?"":(g=="f"?
+'<button class="feat" type="button" data-i="'+i+'" style="'+sty(p)+'">'+mock(p,0)+'<h3>'+E(p.n)+'</h3><p class="k">'+E(p.kind)+'</p><p class="met">'+p.m[0]+'<small>'+E(p.m[1])+'</small></p></button>':
+'<button class="card" type="button" data-i="'+i+'">'+mock(p,0)+'<h3>'+E(p.n)+'</h3><p class="k">'+E(p.kind)+'</p></button>')}).join("")}
+box("feats","f");box("more","m");box("prod","p");
+var dl=document.getElementById("dlg"),mc=document.getElementById("mc");
+function open(i){var p=P[i];
+mc.innerHTML='<div class="mh" style="'+sty(p)+'"><h2 id="mt">'+E(p.n)+'</h2><p>'+E(p.kind)+'</p><button class="x" type="button" aria-label="Close" id="cl">×</button></div><div class="mb"><div class="cols"><div><p class="d">'+E(p.d)+'</p><ul class="ch">'+p.t.map(function(t){return "<li>"+E(t)+"</li>"}).join("")+'</ul></div><ul class="fl">'+p.f.map(function(x){return "<li>"+E(x)+"</li>"}).join("")+'</ul></div><div class="gal">'+(p.shots?p.shots.map(function(s){return '<img src="'+s+'" alt="Screenshot of '+E(p.n)+'">'}).join(""):[0].map(function(v){return "<div>"+mock(p,v)+"</div>"}).join(""))+'</div><a class="vis" href="'+p.u+'" target="_blank" rel="noopener">Open the live site</a></div>';
+document.getElementById("cl").onclick=function(){dl.close()};dl.showModal();dl.scrollTop=0}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-i]");if(b)open(+b.getAttribute("data-i"));else if(e.target===dl)dl.close()});
+var R=document.documentElement;try{var s=localStorage.getItem("theme");if(s)R.setAttribute("data-theme",s)}catch(x){}
+document.getElementById("th").onclick=function(){var d=R.getAttribute("data-theme")!=="light",n=d?"light":"dark";R.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(x){}};
+</script>
+</body>
+</html>
