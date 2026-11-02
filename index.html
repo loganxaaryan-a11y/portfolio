@@ -108,6 +108,33 @@ footer{padding:clamp(40px,8vw,100px) 0 56px}
 .capabilities span{font-size:.78rem;border:1px solid var(--line);border-radius:999px;padding:6px 12px}
 @media(min-width:760px){.about{grid-template-columns:1fr 1.3fr;gap:50px}}
 @media(max-width:480px){nav{gap:8px 14px}nav a,.tg{font-size:.85rem}.chat{max-width:300px}.hero{gap:36px}.intro{font-size:.7rem}.hero-links{gap:18px}.grid{grid-template-columns:minmax(0,1fr)}}
+
+/* A tactile textile scene, scoped to the Hari project. */
+.hh-scene{width:100%;height:100%}
+.hh-fabric{transform-box:fill-box;transform-origin:50% 0;animation:linen-unfold 15s ease-in-out infinite}
+.hh-colour{animation:linen-colour 15s ease-in-out infinite}
+.hh-towel{animation:linen-towel 15s ease-in-out infinite}
+.hh-ring{opacity:0;animation:linen-swatch 15s infinite}
+.hh-ring-two{animation-delay:5s}.hh-ring-three{animation-delay:10s}
+.hh-caption{animation:linen-caption 15s ease-in-out infinite}
+@keyframes linen-unfold{0%,100%{transform:translateY(24px) rotate(-7deg) scaleY(.48)}15%,88%{transform:translateY(0) rotate(-3deg) scaleY(1)}}
+@keyframes linen-colour{0%,28%,100%{fill:#aeb99b}36%,60%{fill:#344e60}68%,90%{fill:#c7a27d}}
+@keyframes linen-towel{0%,8%,100%{opacity:0;transform:translate(30px,8px)}23%,88%{opacity:1;transform:translate(0,0)}}
+@keyframes linen-swatch{0%,28%{opacity:.8}33%,100%{opacity:0}}
+@keyframes linen-caption{0%,12%,100%{opacity:.35}25%,90%{opacity:1}}
+.sc *{animation-play-state:paused!important}.sc.is-visible *{animation-play-state:running!important}
+.site-preview{margin:0;min-width:0}
+.preview-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:12px 12px 0 0;padding:10px 14px;color:var(--mute);font-size:.65rem}
+.preview-bar>span:first-child{font-size:8px;letter-spacing:3px;opacity:.6}
+.site-preview>a{display:block;border:1px solid var(--line);border-top:0;overflow:hidden;border-radius:0 0 8px 8px}
+.site-preview img{display:block;width:100%;height:auto}
+.site-preview figcaption{color:var(--mute);font-size:.72rem;margin-top:10px}
+.detail-label{display:block;font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--mute);margin:0 0 12px;font-weight:600}
+.brief{font-size:1.22rem;line-height:1.45;margin:0 0 25px;max-width:46ch}
+.try-flow{padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.try-flow p{margin:0;max-width:65ch}
+@media(max-width:480px){.preview-bar>span:last-child{display:none}.mb{gap:22px}}
+@media(prefers-reduced-motion:reduce){.sc *{animation:none!important}.hh-fabric{transform:rotate(-3deg)}.hh-towel,.hh-caption,.hh-ring-one{opacity:1}.hh-ring-two,.hh-ring-three{opacity:0}}
 </style>
 </head>
 <body>
@@ -152,7 +179,13 @@ var P=[
       "Dedicated hospitality and gifting information",
       "Product-specific WhatsApp enquiries"
     ],
-    "status": "Client website"
+    "status": "Client website",
+    "shots": [
+      "assets/hari.webp"
+    ],
+    "shotCaption": "Actual website · Homepage",
+    "brief": "Bring a broad wholesale range into one clear, branded showroom.",
+    "tryIt": "Explore a collection, open a product and follow its enquiry path."
   },
   {
     "n": "Badster Burgers",
@@ -178,7 +211,13 @@ var P=[
       "Opening hours and restaurant information",
       "An order summary ready to send on WhatsApp"
     ],
-    "status": "Client website"
+    "status": "Client website",
+    "shots": [
+      "assets/badster.webp"
+    ],
+    "shotCaption": "Actual website · Menu and ordering homepage",
+    "brief": "Make a full restaurant menu easy to browse and turn into a WhatsApp order.",
+    "tryIt": "Browse the menu, customise a combo and review the assembled order."
   },
   {
     "n": "A.S. Pool & Snooker Club",
@@ -204,7 +243,13 @@ var P=[
       "City search, nearby clubs and directions",
       "Game guides and an optional animated break intro"
     ],
-    "status": "Client project"
+    "status": "Client project",
+    "shots": [
+      "assets/snooker.webp"
+    ],
+    "shotCaption": "Actual website · Animated club introduction",
+    "brief": "Give a multi-location club network one distinctive home and a useful branch finder.",
+    "tryIt": "Watch or skip the intro, then explore the club locations and directions."
   },
   {
     "n": "Shraddha Yoga Space",
@@ -227,7 +272,13 @@ var P=[
       "WhatsApp enquiries and guidance for a first session"
     ],
     "u2": 1,
-    "status": "Client website"
+    "status": "Client website",
+    "shots": [
+      "assets/yoga.webp"
+    ],
+    "shotCaption": "Actual website · Studio homepage",
+    "brief": "Help a new visitor understand the studio, compare classes and enquire about a trial.",
+    "tryIt": "Find a suitable batch, compare membership options and explore the trial enquiry."
   },
   {
     "n": "Unique Ideas",
@@ -472,8 +523,9 @@ var P=[
   }
 ];
 function E(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+var linenId=0;
 var S={
-"Hari Handloom House":function(){return '<div style="position:absolute;inset:13%;border-radius:10px;animation:sw 9s infinite"></div><div style="position:absolute;inset:13%;border-radius:10px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.16) 0 7px,transparent 7px 24px)"></div><span style="position:absolute;left:17%;bottom:18%;font-size:.8rem">Morden Stripes, four colours</span>'},
+"Hari Handloom House":function(){var id="linen-"+(++linenId);return '<svg class="hh-scene" viewBox="0 0 400 300" aria-hidden="true"><defs><pattern id="'+id+'-weave" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M0 1H5M1 0V5" stroke="#fff" stroke-opacity=".17" stroke-width=".6"/></pattern><pattern id="'+id+'-stripe" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M5 0V24M9 0V24" stroke="#fff" stroke-opacity=".32" stroke-width="2"/></pattern><linearGradient id="'+id+'-shade" x2="1" y2="0"><stop stop-color="#000" stop-opacity=".16"/><stop offset=".3" stop-color="#fff" stop-opacity=".08"/><stop offset=".63" stop-color="#000" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity=".22"/></linearGradient></defs><rect width="400" height="300" fill="#eee9df"/><path d="M0 238L400 152V300H0Z" fill="#e4dccd"/><text x="24" y="29" fill="#7d735e" font-size="9" letter-spacing="2.2">THE TEXTILE EDIT</text><text x="375" y="29" text-anchor="end" fill="#7d735e" font-size="9" letter-spacing="1">BED &amp; BATH</text><ellipse cx="176" cy="229" rx="115" ry="13" fill="#192e39" opacity=".10"/><g class="hh-fabric"><path class="hh-colour" d="M69 62Q158 51 254 63L265 215Q223 231 187 220T84 227Z" fill="#aeb99b"/><path d="M69 62Q158 51 254 63L265 215Q223 231 187 220T84 227Z" fill="url(#'+id+'-stripe)"/><path d="M69 62Q158 51 254 63L265 215Q223 231 187 220T84 227Z" fill="url(#'+id+'-weave)"/><path d="M69 62Q158 51 254 63L265 215Q223 231 187 220T84 227Z" fill="url(#'+id+'-shade)"/><path d="M70 63Q161 78 254 64L255 91Q161 104 72 88Z" fill="#fff" fill-opacity=".18"/><path d="M84 217Q147 209 185 214T264 208" stroke="#fff" stroke-opacity=".45" fill="none"/><rect x="91" y="180" width="37" height="20" rx="1" fill="#f7f3ea"/><text x="109.5" y="193.5" font-family="Georgia,serif" font-size="11" text-anchor="middle" fill="#192e39">HH</text></g><g class="hh-towel"><ellipse cx="288" cy="228" rx="65" ry="11" fill="#192e39" opacity=".12"/><rect x="226" y="166" width="120" height="58" rx="9" fill="#d5c5a4"/><rect x="226" y="158" width="120" height="58" rx="9" fill="#f9f4e8"/><rect x="226" y="158" width="120" height="58" rx="9" fill="url(#'+id+'-weave)"/><path d="M234 192H338M234 197H338M234 202H338" stroke="#c9ba98" stroke-width="2"/><path d="M239 161H329" stroke="#fff" stroke-width="2" stroke-linecap="round"/><rect x="278" y="157" width="20" height="60" fill="#192e39"/><text x="288" y="189" text-anchor="middle" font-family="Georgia,serif" font-size="8" fill="#e5d5b7">HH</text></g><g transform="translate(310 66)"><circle cx="0" cy="0" r="10" fill="#aeb99b"/><circle class="hh-ring hh-ring-one" cx="0" cy="0" r="14" fill="none" stroke="#192e39"/><circle cx="0" cy="36" r="10" fill="#344e60"/><circle class="hh-ring hh-ring-two" cx="0" cy="36" r="14" fill="none" stroke="#192e39"/><circle cx="0" cy="72" r="10" fill="#c7a27d"/><circle class="hh-ring hh-ring-three" cx="0" cy="72" r="14" fill="none" stroke="#192e39"/></g><g class="hh-caption"><path d="M24 252H376" stroke="#c8bdab"/><text x="24" y="277" fill="#192e39" font-size="12" font-family="Georgia,serif">Soft textures. Considered details.</text><path d="M359 268H375V284M375 268L359 284" fill="none" stroke="#192e39" stroke-width="1.4"/></g></svg>'},
 "Badster Burgers":function(){var r=[["Cheeto Fries","₹140"],["Honey Lime Espresso","₹180"],["Make it a combo","+₹80"]];return '<div style="width:80%;display:grid;gap:8px;font-size:.8rem">'+r.map(function(x,i){return '<div class="pp" style="animation-delay:'+i*.6+'s;display:flex;justify-content:space-between;border-bottom:1px solid;padding-bottom:5px"><span>'+x[0]+'</span><span>'+x[1]+'</span></div>'}).join("")+'<div class="pp" style="animation-delay:1.8s;background:#25d366;color:#04150d;border-radius:99px;padding:9px;text-align:center">Send ₹400 order on WhatsApp</div></div>'},
 "A.S. Pool & Snooker Club":function(){var s="";for(var i=0;i<13;i++){s+='<i style="position:absolute;left:'+(8+i*37%80)+'%;top:'+(14+i*53%62)+'%;width:9px;height:9px;margin:-4px;border-radius:50%;background:currentColor"><b style="position:absolute;inset:0;border-radius:50%;border:2px solid currentColor;animation:ping 3s infinite;animation-delay:'+i*.23+'s"></b></i>'}return s+'<span style="position:absolute;left:6%;bottom:6%;font-size:1.3rem">13 clubs, 4 cities</span>'},
 "Shraddha Yoga Space":function(){return '<div style="width:50%;aspect-ratio:1;border-radius:50%;background:currentColor;animation:br 8s ease-in-out infinite"></div><span class="w" style="bottom:11%;animation:ci 8s infinite">Breathe in</span><span class="w" style="bottom:11%;animation:co 8s infinite">Breathe out</span>'},
@@ -500,10 +552,14 @@ function box(id,g){document.getElementById(id).innerHTML=P.map(function(p,i){ret
 '<button class="feat" type="button" data-i="'+i+'" style="'+sty(p)+'">'+mock(p,0)+'<span class="project-status">'+E(p.status)+'</span><h3>'+E(p.n)+'</h3><p class="k">'+E(p.kind)+'</p><p class="met">'+p.m[0]+'<small>'+E(p.m[1])+'</small></p></button>':
 '<button class="card" type="button" data-i="'+i+'">'+mock(p,0)+'<span class="project-status">'+E(p.status)+'</span><h3>'+E(p.n)+'</h3><p class="k">'+E(p.kind)+'</p></button>')}).join("")}
 box("feats","f");box("more","m");box("prod","p");
+var sceneObserver=typeof IntersectionObserver!=="undefined"?new IntersectionObserver(function(entries){entries.forEach(function(entry){entry.target.classList.toggle("is-visible",entry.isIntersecting)})},{threshold:.05}):null;
+function watchScenes(root){root.querySelectorAll(".sc").forEach(function(el){if(sceneObserver)sceneObserver.observe(el);else el.classList.add("is-visible")})}
+watchScenes(document);
 var dl=document.getElementById("dlg"),mc=document.getElementById("mc");
-function open(i){var p=P[i];
-mc.innerHTML='<div class="mh" style="'+sty(p)+'"><p class="modal-status">'+E(p.status)+'</p><h2 id="mt">'+E(p.n)+'</h2><p>'+E(p.kind)+'</p><button class="x" type="button" aria-label="Close" id="cl">×</button></div><div class="mb"><div class="cols"><div><p class="d">'+E(p.d)+'</p><ul class="ch">'+p.t.map(function(t){return "<li>"+E(t)+"</li>"}).join("")+'</ul></div><ul class="fl">'+p.f.map(function(x){return "<li>"+E(x)+"</li>"}).join("")+'</ul></div><div class="gal">'+(p.shots?p.shots.map(function(s){return '<img src="'+s+'" alt="Screenshot of '+E(p.n)+'">'}).join(""):[0].map(function(v){return "<div>"+mock(p,v)+"</div>"}).join(""))+'</div><p class="preview-note">Animated project illustration. '+(p.u?'Open the project to explore the actual interface.':'Public demo not yet available.')+'</p>'+(p.u?'<a class="vis" href="'+p.u+'" target="_blank" rel="noopener">'+E(p.linkLabel||'Explore the website')+'</a>':'')+'</div>';
-document.getElementById("cl").onclick=function(){dl.close()};dl.showModal();dl.scrollTop=0}
+function open(i){var p=P[i];if(sceneObserver)mc.querySelectorAll(".sc").forEach(function(el){sceneObserver.unobserve(el)});
+var visual=p.shots?'<figure class="site-preview"><div class="preview-bar"><span aria-hidden="true">● ● ●</span><span>'+E(p.n)+'</span><span>Website preview</span></div><a href="'+p.u+'" target="_blank" rel="noopener" aria-label="Visit '+E(p.n)+' website"><img src="'+p.shots[0]+'" width="1440" height="1000" alt="'+E(p.shotCaption)+' for '+E(p.n)+'"></a><figcaption>'+E(p.shotCaption)+' · Captured November 2026</figcaption></figure>':'<div class="gal"><div>'+mock(p,0)+'</div></div><p class="preview-note">Animated project illustration. '+(p.u?'Open the project to explore the actual interface.':'Public demo not yet available.')+'</p>';
+mc.innerHTML='<div class="mh" style="'+sty(p)+'"><p class="modal-status">'+E(p.status)+'</p><h2 id="mt">'+E(p.n)+'</h2><p>'+E(p.kind)+'</p><button class="x" type="button" aria-label="Close" id="cl">×</button></div><div class="mb">'+visual+'<div class="cols"><div>'+(p.brief?'<h3 class="detail-label">The brief</h3><p class="brief">'+E(p.brief)+'</p><h3 class="detail-label">The approach</h3>':'')+'<p class="d">'+E(p.d)+'</p><ul class="ch">'+p.t.map(function(t){return "<li>"+E(t)+"</li>"}).join("")+'</ul></div><div><h3 class="detail-label">What’s inside</h3><ul class="fl">'+p.f.map(function(x){return "<li>"+E(x)+"</li>"}).join("")+'</ul></div></div>'+(p.tryIt?'<div class="try-flow"><span class="detail-label">Try the experience</span><p>'+E(p.tryIt)+'</p></div>':'')+(p.u?'<a class="vis" href="'+p.u+'" target="_blank" rel="noopener">'+E(p.linkLabel||'Explore the website')+' <span aria-hidden="true">↗</span></a>':'')+'</div>';
+document.getElementById("cl").onclick=function(){dl.close()};dl.showModal();dl.scrollTop=0;watchScenes(mc)}
 document.addEventListener("click",function(e){var b=e.target.closest("[data-i]");if(b)open(+b.getAttribute("data-i"));else if(e.target===dl)dl.close()});
 var R=document.documentElement;try{var s=localStorage.getItem("theme");if(s)R.setAttribute("data-theme",s)}catch(x){}
 document.getElementById("th").onclick=function(){var d=R.getAttribute("data-theme")!=="light",n=d?"light":"dark";R.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(x){}};
