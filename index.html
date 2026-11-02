@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Logan — I turn visitors into conversations</title>
-<meta name="description" content="Websites and small apps for restaurants, studios, shops and a few ideas of my own.">
+<title>Logan — Websites & digital products · Toronto</title>
+<meta name="description" content="Toronto-based website and digital product builder. Explore Logan’s business websites, interactive catalogues and independent apps.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -87,40 +87,389 @@ footer{padding:clamp(40px,8vw,100px) 0 56px}
 @keyframes fill{0%,100%{background:transparent}35%,65%{background:currentColor}}
 @keyframes bl{0%,55%{opacity:0}65%,90%{opacity:1}100%{opacity:0}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.sc *{animation:none!important}.pp{opacity:1}.sc .w:first-of-type{opacity:1}}
+
+/* Portfolio context and restrained editorial details. */
+.intro{font-size:.78rem;line-height:1.6;letter-spacing:.09em;text-transform:uppercase;font-weight:600;color:var(--mute);margin:0 0 22px;max-width:46ch}
+.hero>div{min-width:0}
+.hero-links{display:flex;flex-wrap:wrap;gap:14px 26px;margin-top:26px}
+.hero-links a{font-size:.9rem;text-decoration:none;border-bottom:1px solid var(--line);padding:0 0 7px;font-weight:600}
+.hero-links a:first-child{color:var(--ac)}
+.hero-links span{margin-left:10px}
+@media(min-width:860px){.hero{grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:48px}h1{font-size:clamp(3.7rem,6.6vw,6rem)}}
+.project-status{font-size:.68rem;line-height:1.5;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin:4px 2px 0}
+.feat .project-status{color:inherit;opacity:.75;margin-inline:6px}
+.met{font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.1}
+.modal-status{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;margin:0 50px 16px 0!important}
+.preview-note{font-size:.8rem;color:var(--mute);margin:-10px 0 0}
+.about{border-top:1px solid var(--line);margin-top:50px;display:grid;gap:28px}
+.about p:not(.intro){color:var(--mute);max-width:58ch;margin:0 0 18px}
+.about h2{font-size:clamp(2rem,4vw,3rem);line-height:1.08}
+.capabilities{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.capabilities span{font-size:.78rem;border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+@media(min-width:760px){.about{grid-template-columns:1fr 1.3fr;gap:50px}}
+@media(max-width:480px){nav{gap:8px 14px}nav a,.tg{font-size:.85rem}.chat{max-width:300px}.hero{gap:36px}.intro{font-size:.7rem}.hero-links{gap:18px}.grid{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
 <body>
 <div class="w">
-<header><span class="nm">Logan</span><nav><a href="#work">Work</a><a href="#products">Products</a><a href="#contact">Contact</a><button class="tg" id="th" type="button" aria-label="Switch light or dark theme">Theme</button></nav></header>
+<header><span class="nm">Logan</span><nav><a href="#work">Work</a><a href="#products">Products</a><a href="#about">About</a><a href="#contact">Contact</a><button class="tg" id="th" type="button" aria-label="Switch light or dark theme">Theme</button></nav></header>
 <div class="hero">
-<div><h1>I turn visitors into conversations.</h1><p class="lede">I build websites and small apps for restaurants, studios and shops, so a tap on a phone becomes a message in their WhatsApp.</p></div>
-<div class="chat" aria-label="Examples of enquiries sent from my sites">
-<div class="bub">Hi, I’m interested in booking a free one-day trial class.<small>Sent from the Shraddha Yoga Space site</small></div>
-<div class="bub">I’d like a quote for limousine or chauffeur service.<small>Sent from the Vantage site</small></div>
-<div class="bub">Hi, I’d like to discuss a custom piece.<small>Sent from the Unique Ideas site</small></div>
+<div><p class="intro">Toronto-based website &amp; digital product builder</p><h1>I turn visitors into conversations.</h1><p class="lede">I’m Logan. I build distinctive business websites and interactive products—from menus and catalogues to independent apps.</p><div class="hero-links"><a href="#work">Explore my work <span aria-hidden="true">↘</span></a><a href="#contact">Discuss a project <span aria-hidden="true">↗</span></a></div></div>
+<div class="chat" aria-label="Illustrative enquiries visitors can make through these projects">
+<div class="bub">Hi, I’m interested in booking a free one-day trial class.<small>Example enquiry · Shraddha Yoga Space</small></div>
+<div class="bub">I’d like a quote for limousine or chauffeur service.<small>Example enquiry · Vantage</small></div>
+<div class="bub">Hi, I’d like to discuss a custom piece.<small>Example enquiry · Unique Ideas</small></div>
 </div></div>
-<section id="work"><h2>Selected work</h2><p class="sub">Three sites that turned a busy shop, restaurant and club network into something a customer can use in seconds.</p><div class="feats" id="feats"></div></section>
-<section><h2>More for clients</h2><p class="sub">Studios, makers, personal brands and concepts I built to show what a local business could have.</p><div class="grid" id="more"></div></section>
-<section id="products"><h2>Products and experiments</h2><p class="sub">Apps I built for myself, from a bedtime sound library to a trading signal desk.</p><div class="grid" id="prod"></div></section>
-<footer id="contact"><h2>Let’s work together.</h2><p class="sub">Tell me what you sell and how customers reach you today. I’ll send back a working preview, not a proposal.</p><div class="ln"><a href="https://github.com/loganxaaryan-a11y" target="_blank" rel="noopener">See the code on GitHub</a><a href="https://x.com/loganxbtc" target="_blank" rel="noopener">Message me on X</a></div></footer>
+<section id="work"><h2>Selected work</h2><p class="sub">Business websites with a clear next step: explore a range, build an order or find the right location.</p><div class="feats" id="feats"></div></section>
+<section><h2>Studios, stories &amp; services</h2><p class="sub">Client websites and concept projects, each shaped around a different business and audience.</p><div class="grid" id="more"></div></section>
+<section id="products"><h2>Products and experiments</h2><p class="sub">Independent work in discovery, journaling, play, audio and research. Some are usable products; others are still taking shape.</p><div class="grid" id="prod"></div></section>
+<section class="about" id="about"><div><p class="intro">The person behind the work</p><h2>Business-minded.<br>Curious by nature.</h2></div><div><p>I’m Logan, an independent builder based in Toronto, with a background in marketing, customer service and retail. I’m interested in what makes a website useful: how people find their way, understand an offer and decide what to do next.</p><p>I use an AI-assisted design and development workflow to build, test and refine my projects. The work spans business websites, interactive catalogues and products inspired by my own interests.</p><div class="capabilities"><span>Business websites</span><span>Menus &amp; catalogues</span><span>Landing pages</span><span>Interactive prototypes</span></div></div></section><footer id="contact"><h2>Let’s work together.</h2><p class="sub">Tell me about your business, what you need and when you’d like to launch. We can work out a clear scope, timeline and quote.</p><div class="ln"><a href="https://github.com/loganxaaryan-a11y" target="_blank" rel="noopener">See the code on GitHub</a><a href="https://x.com/loganxbtc" target="_blank" rel="noopener">Message me on X</a></div></footer>
 </div>
 <dialog id="dlg" aria-labelledby="mt"><div id="mc"></div></dialog>
 <script>
 var P=[
-{n:"Hari Handloom House",g:"f",kind:"Wholesale textiles, Ahmedabad",u:"https://harihandloomhouse.in",bg:"#192e39",fg:"#f1e6d3",line:"Bed and bath, beautifully supplied",m:["68","ranges across 4 brands"],t:["Catalogue","Wholesale enquiry","WhatsApp flow"],d:"Branded and own-label bed and bath textiles for hotels, retailers and gift buyers. Every range opens into sizes and reference prices, and each enquiry reaches the team on WhatsApp already written.",f:["Separate pages for hospitality and gifting","Brands: Bombay Dyeing, Rosepetal, Lotus, Sarla","Zoomable photos and a showroom page"]},
-{n:"Badster Burgers",g:"f",kind:"Late-night burger shop, Maninagar",u:"https://badsterburgers.in",bg:"#07090c",fg:"#ffb800",line:"Bring your appetite",m:["67","menu items, ordered on WhatsApp"],t:["Menu","Live ordering","Combo builder"],d:"A vegetarian burger spot open until 2:45 AM. Customers build an order from the full menu, add combos and extras, and send it to the restaurant in one tap.",f:["Search and category filters","Combo builder for fries and drinks","Opening hours built into ordering"]},
-{n:"A.S. Pool & Snooker Club",g:"f",kind:"Club network, Gujarat",u:"https://loganxaaryan-a11y.github.io/a-s-pool-snooker-creative-v4/",bg:"#062b27",fg:"#e5f5c0",line:"One break. 13 clubs.",m:["13","clubs across 4 cities"],t:["Directory","Bilingual","3D intro"],d:"One site for a snooker and pool club with 13 branches. Visitors find the nearest club, get directions in one tap and learn the rules of five games.",f:["English and Gujarati","Search by city, nearest-club button","Optional 3D break intro"]},
-{n:"Shraddha Yoga Space",g:"m",kind:"Yoga studio, Isanpur",u:"https://shraddhayoga.space",bg:"#dfe8d8",fg:"#2d3b2a",line:"Make yoga part of your life",t:["Bookings","Pricing","Reviews"],d:"A studio that needed trial bookings, not just information. Every class time is one tap to a WhatsApp chat with the batch already filled in.",f:["7 regular batches plus weight-loss yoga","Membership plans with savings shown","Group-session and teacher-training enquiries"],u2:1},
-{n:"Unique Ideas",g:"m",kind:"Resin art studio",u:"https://loganxaaryan-a11y.github.io/unique-ideas/",bg:"#faf7f1",fg:"#5a3b12",line:"Made by hand. Made for you.",t:["Catalogue","Custom orders"],d:"A resin artist’s catalogue of finished work, where every piece is a starting point for a personalised order.",f:["24 finished pieces you can filter","Custom enquiry sent through WhatsApp","Concept designs kept apart from finished work"]},
-{n:"Vantage",g:"m",kind:"Concept: chauffeur service, Vancouver",u:"https://loganxaaryan-a11y.github.io/vantage/",bg:"#0e1a2b",fg:"#e6c98a",line:"Arrive beyond expectation",t:["Quote flow","Concept"],d:"A limousine and chauffeur service for Vancouver and Whistler. A short journey form turns into a ready-to-send WhatsApp quote request.",f:["Airport, wedding, corporate and VIP services","Four fleet classes","Quote-based, no payment taken"]},
-{n:"The Salon",g:"m",kind:"Concept: hair studio, Toronto",u:"https://loganxaaryan-a11y.github.io/laymon-hair-salon/",bg:"#f4f4f2",fg:"#1b1b1b",line:"Appointment-led hair studio",t:["Booking","Template"],d:"An appointment-led site for a hair studio, made generic so I can adapt it for any salon owner in days.",f:["Cuts, colour, braids, waxing and facials","Reusable salon template"]},
-{n:"Denyse Clara",g:"m",kind:"Personal site, Toronto",u:"https://denyseclaracares.ca",bg:"#4b2536",fg:"#f6e8ee",line:"Rooted in community",t:["Personal brand","Storytelling"],d:"A personal site for a social worker, advocate and student leader, covering her work, governance roles and the values behind them.",f:["Welcomes visitors in six languages","Built around her story and leadership"]},
-{n:"Binge",g:"p",kind:"Movie, TV and anime tracker",u:"https://binge-logan-d475.vercel.app",bg:"#000000",fg:"#ffffff",line:"Discover and track what to watch",t:["App","Five data sources"],d:"One place to discover and track movies, TV and anime. No sign-in, and it installs to your home screen like an app.",f:["TMDB, AniList, TVmaze, OMDb and Watchmode","Streaming availability from JustWatch","Installable on a phone"]},
-{n:"A Dot",g:"p",kind:"Eight-game play assessment",u:"https://loganxaaryan-a11y.github.io/a-dot/",bg:"#fafaf7",fg:"#111111",line:"Eight games, one observed run",t:["Game","Report"],d:"Eight short games that read how you play rather than score you. Every insight points back to something you did, and nothing is framed as a diagnosis.",f:["Evidence behind every line","Downloadable full report"]},
-{n:"Dream Portals",g:"p",kind:"Ambient sleep journeys",u:"https://loganxaaryan-a11y.github.io/dream-portals/",bg:"#000000",fg:"#b9c4ff",line:"Tap a destination and close your eyes",t:["Audio","Sleep"],d:"Ten ambient bedtime journeys, from a bus to the moon to a lighthouse watch-room, each with its own soundscape that fades to silence.",f:["10 journeys","Body unwind and mind shuffle add-ons"]},
-{n:"Synthesize",g:"p",kind:"News desk filed by sector",u:"https://curatednewslawl.grok.me",bg:"#12110e",fg:"#e8dfc9",line:"Filed by what the story is about",t:["Live data","News"],d:"A news desk that files the day’s stories by what they’re about, not who published them, with live market strips beside each sector.",f:["Six desks: technology, crypto, conflict, oil, minerals, markets","Sources and method pages"]},
-{n:"DIVERGE",g:"p",kind:"Trading signal desk (in progress)",u:"https://diverge.grok.me",bg:"#090b0e",fg:"#7cf5c8",line:"Fade the extreme when volume is thin",t:["Trading","In progress"],d:"A signal desk for Hyperliquid perpetuals. It fades a six-hour extreme only when volume is thin, and logs every call it makes.",f:["Rule-based calls with a running log","Live crypto and stock movers"]},
-{n:"Stashbook",g:"p",kind:"Private cannabis journal, 19+",u:"https://stashbook.lawliett.chatgpt.site",bg:"#17251b",fg:"#d6e7c3",line:"A journal of your own taste",t:["App","Age gate"],d:"A private journal for craft cannabis. Save photos, rate products and remember the details of every batch. It opens behind a 19+ gate.",f:["367-flower catalogue","Age gate on entry"]}
+  {
+    "n": "Hari Handloom House",
+    "g": "f",
+    "kind": "Wholesale textile showroom",
+    "u": "https://harihandloomhouse.in",
+    "bg": "#192e39",
+    "fg": "#f1e6d3",
+    "line": "Bed and bath, beautifully supplied",
+    "m": [
+      "B2B",
+      "catalogue & tailored enquiries"
+    ],
+    "t": [
+      "Product catalogue",
+      "Hospitality",
+      "Corporate gifting"
+    ],
+    "d": "A digital showroom for a wholesale textile business in Ahmedabad. Brand collections, product details and buying information help retailers, hospitality teams and gift buyers explore the range before starting a tailored enquiry.",
+    "f": [
+      "Browse bed and bath collections by brand",
+      "Explore sizes, product photos and reference prices",
+      "Dedicated hospitality and gifting information",
+      "Product-specific WhatsApp enquiries"
+    ],
+    "status": "Client website"
+  },
+  {
+    "n": "Badster Burgers",
+    "g": "f",
+    "kind": "Restaurant menu & ordering experience",
+    "u": "https://badsterburgers.in",
+    "bg": "#07090c",
+    "fg": "#ffb800",
+    "line": "Bring your appetite",
+    "m": [
+      "Menu → order",
+      "combos, extras & WhatsApp"
+    ],
+    "t": [
+      "Interactive menu",
+      "Combo builder",
+      "WhatsApp ordering"
+    ],
+    "d": "A mobile-friendly ordering experience for a vegetarian burger restaurant in Maninagar. Customers browse the menu, build combos, add extras and send their assembled order to the restaurant on WhatsApp.",
+    "f": [
+      "Search and category filters for the menu",
+      "Combos and extras in one ordering flow",
+      "Opening hours and restaurant information",
+      "An order summary ready to send on WhatsApp"
+    ],
+    "status": "Client website"
+  },
+  {
+    "n": "A.S. Pool & Snooker Club",
+    "g": "f",
+    "kind": "Multi-location club website",
+    "u": "https://loganxaaryan-a11y.github.io/a-s-pool-snooker-creative-v4/",
+    "bg": "#062b27",
+    "fg": "#e5f5c0",
+    "line": "One break. 13 clubs.",
+    "m": [
+      "13 clubs",
+      "one place to explore the network"
+    ],
+    "t": [
+      "Branch discovery",
+      "Bilingual",
+      "Motion design"
+    ],
+    "d": "A branded website for a pool and snooker club network across Gujarat. It brings branch discovery, directions and owner-provided game guides together with a distinctive animated introduction. Developed through four visual directions for client review.",
+    "f": [
+      "13 verified branch locations",
+      "English and Gujarati content",
+      "City search, nearby clubs and directions",
+      "Game guides and an optional animated break intro"
+    ],
+    "status": "Client project"
+  },
+  {
+    "n": "Shraddha Yoga Space",
+    "g": "m",
+    "kind": "Yoga studio & trial enquiries",
+    "u": "https://shraddhayoga.space",
+    "bg": "#dfe8d8",
+    "fg": "#2d3b2a",
+    "line": "Make yoga part of your life",
+    "t": [
+      "Class schedules",
+      "Memberships",
+      "Trial enquiries"
+    ],
+    "d": "A warm, approachable website for a yoga studio in Isanpur. Class schedules, membership options and instructor information help visitors choose a suitable session and take the next step through a trial enquiry.",
+    "f": [
+      "Regular and weight-loss yoga schedules",
+      "Membership prices and longer-plan savings",
+      "Instructor story and studio photography",
+      "WhatsApp enquiries and guidance for a first session"
+    ],
+    "u2": 1,
+    "status": "Client website"
+  },
+  {
+    "n": "Unique Ideas",
+    "g": "m",
+    "kind": "Handcrafted resin-art catalogue",
+    "u": "https://loganxaaryan-a11y.github.io/unique-ideas/",
+    "bg": "#faf7f1",
+    "fg": "#5a3b12",
+    "line": "Made by hand. Made for you.",
+    "t": [
+      "Product presentation",
+      "Catalogue",
+      "Custom enquiries"
+    ],
+    "d": "A catalogue for a handcrafted resin-art business, designed to let the work lead. Visitors can explore finished pieces and start a conversation about a personalised order. The client site is prepared for its custom-domain handoff.",
+    "f": [
+      "Filterable collection of finished pieces",
+      "Product-led presentation for handcrafted work",
+      "Personalised enquiries through WhatsApp",
+      "Concept designs distinguished from finished work"
+    ],
+    "status": "Client website · Domain pending"
+  },
+  {
+    "n": "Vantage",
+    "g": "m",
+    "kind": "Chauffeur-service website concept",
+    "u": "https://loganxaaryan-a11y.github.io/vantage/",
+    "bg": "#0e1a2b",
+    "fg": "#e6c98a",
+    "line": "Arrive beyond expectation",
+    "t": [
+      "Service design",
+      "Fleet presentation",
+      "Quote journey"
+    ],
+    "d": "A premium website concept for a chauffeur service in Vancouver and Whistler. Service information, fleet presentation and a guided journey enquiry turn a broad request into a useful quote conversation.",
+    "f": [
+      "Airport, wedding, corporate and VIP service pages",
+      "Fleet categories to explore before enquiring",
+      "Journey details prepared for a WhatsApp quote request",
+      "A quote-based experience without online payment"
+    ],
+    "status": "Concept"
+  },
+  {
+    "n": "The Salon",
+    "g": "m",
+    "kind": "Salon website concept",
+    "u": "https://loganxaaryan-a11y.github.io/laymon-hair-salon/",
+    "bg": "#f4f4f2",
+    "fg": "#1b1b1b",
+    "line": "Appointment-led hair studio",
+    "t": [
+      "Service catalogue",
+      "Local business",
+      "Reusable design"
+    ],
+    "d": "An appointment-focused website concept for a Toronto hair studio. The design brings services and the salon's identity together in a reusable foundation that can be tailored to an individual business.",
+    "f": [
+      "Hair, colour and beauty-service presentation",
+      "A visual direction for an appointment-led business",
+      "Adaptable structure for a salon's services and branding"
+    ],
+    "status": "Concept"
+  },
+  {
+    "n": "Denyse Clara",
+    "g": "m",
+    "kind": "Personal brand & community",
+    "u": "https://denyseclaracares.ca",
+    "bg": "#4b2536",
+    "fg": "#f6e8ee",
+    "line": "Rooted in community",
+    "t": [
+      "Personal brand",
+      "Storytelling",
+      "Community"
+    ],
+    "d": "A personal website for a social worker, advocate and student leader in Toronto. Her story, community involvement and leadership experience shape the information structure and visual identity.",
+    "f": [
+      "A multilingual welcome",
+      "Space for her story, work and leadership",
+      "A visual identity shaped around community and advocacy"
+    ],
+    "status": "Client website"
+  },
+  {
+    "n": "Stashbook",
+    "g": "p",
+    "kind": "Craft-cannabis discovery & journal",
+    "u": "https://stashbook.lawliett.chatgpt.site",
+    "bg": "#17251b",
+    "fg": "#d6e7c3",
+    "line": "A journal of your own taste",
+    "t": [
+      "Product discovery",
+      "Personal journal",
+      "Catalogue"
+    ],
+    "d": "A craft-cannabis discovery and personal journaling product shaped by my retail experience. It brings product exploration, saved favourites and personal ratings together, helping people keep track of what they tried and what they thought of it.",
+    "f": [
+      "Explore flower, brand and product details",
+      "Keep saved products separate from rated entries",
+      "Record photos, ratings and batch notes",
+      "An evolving catalogue with ongoing data-quality work"
+    ],
+    "status": "Independent product · Beta"
+  },
+  {
+    "n": "Binge",
+    "g": "p",
+    "kind": "Entertainment discovery & tracking",
+    "u": "https://binge-logan-d475.vercel.app",
+    "bg": "#000000",
+    "fg": "#ffffff",
+    "line": "Discover and track what to watch",
+    "t": [
+      "Discovery",
+      "Watch tracking",
+      "Data integration"
+    ],
+    "d": "An independent project exploring movie, television and anime discovery alongside personal watch tracking. It brings entertainment information from multiple sources into one browsing experience.",
+    "f": [
+      "Movies, television and anime in one interface",
+      "Personal watch tracking",
+      "Exploration of streaming-availability information"
+    ],
+    "status": "Independent project",
+    "linkLabel": "Explore the project"
+  },
+  {
+    "n": "A Dot",
+    "g": "p",
+    "kind": "Interactive play & reflection",
+    "u": "https://loganxaaryan-a11y.github.io/a-dot/",
+    "bg": "#fafaf7",
+    "fg": "#111111",
+    "line": "Eight games, one observed run",
+    "t": [
+      "Game design",
+      "Interaction",
+      "Personalised report"
+    ],
+    "d": "Eight short games turn a play session into a reflection on the choices made along the way. The experience connects observations to moments in the session and brings them together in a downloadable report. It is an interactive experiment, not a clinical assessment.",
+    "f": [
+      "Eight short interactive games",
+      "Observations linked to actions during play",
+      "A downloadable reflection report",
+      "No diagnostic claims"
+    ],
+    "status": "Interactive experiment"
+  },
+  {
+    "n": "Dream Portals",
+    "g": "p",
+    "kind": "Ambient audio experiences",
+    "u": "https://loganxaaryan-a11y.github.io/dream-portals/",
+    "bg": "#000000",
+    "fg": "#b9c4ff",
+    "line": "Tap a destination and close your eyes",
+    "t": [
+      "Audio experience",
+      "Atmosphere",
+      "Interaction"
+    ],
+    "d": "A collection of imaginative audio journeys for winding down, from a bus to the moon to a lighthouse watch-room. Destination-led storytelling and soundscapes create a quiet alternative to a conventional playlist.",
+    "f": [
+      "A collection of themed ambient journeys",
+      "Soundscapes that fade towards silence",
+      "Optional body-unwind and mind-shuffle experiences"
+    ],
+    "status": "Independent product"
+  },
+  {
+    "n": "Synthesize",
+    "g": "p",
+    "kind": "News discovery & research briefs",
+    "u": "https://curatednewslawl.grok.me",
+    "bg": "#12110e",
+    "fg": "#e8dfc9",
+    "line": "Filed by what the story is about",
+    "t": [
+      "News discovery",
+      "Source references",
+      "AI-assisted research"
+    ],
+    "d": "A topic-led news desk with newer source-aware briefing work in development. The updated implementation separates reported developments, interpretation and unanswered questions, with source references and explicit fallback labels when AI synthesis is unavailable. The linked earlier demo may not include these updates.",
+    "f": [
+      "Topic and sector-based news exploration",
+      "New briefing work with dated source selection",
+      "Distinct labels for AI briefs and source digests",
+      "Deployment verification remains part of the work"
+    ],
+    "status": "In development",
+    "linkLabel": "View the earlier demo"
+  },
+  {
+    "n": "DIVERGE",
+    "g": "p",
+    "kind": "Market research & paper tracking",
+    "u": "https://diverge.grok.me",
+    "bg": "#090b0e",
+    "fg": "#7cf5c8",
+    "line": "Fade the extreme when volume is thin",
+    "t": [
+      "Research tools",
+      "Paper tracking",
+      "Validation"
+    ],
+    "d": "An independent market-research project exploring rule-based signals, call tracking and outcome review. The work focuses on making research decisions and their evidence inspectable. It remains paper-only and does not establish profitable performance. The linked earlier demo does not represent every later development.",
+    "f": [
+      "Rule-based research and recorded calls",
+      "Outcome tracking and review",
+      "Separate work on data integrity and validation",
+      "Research in progress; no real-money execution"
+    ],
+    "status": "Research · Paper only",
+    "linkLabel": "View the earlier demo"
+  },
+  {
+    "n": "Research Terminal",
+    "g": "p",
+    "kind": "Research workflows & paper evaluation",
+    "status": "Research · In development",
+    "u": null,
+    "bg": "#152332",
+    "fg": "#b7d9ef",
+    "line": "From a research question to evidence",
+    "t": [
+      "Research workflows",
+      "Evaluation",
+      "Paper only"
+    ],
+    "d": "An independent research workspace bringing together crypto and equity terminal work, comparison tools and paper-testing workflows. It explores how research ideas can be recorded, evaluated and reviewed with clear evidence. Parts remain workspace-only or simulated; this is development work rather than a public trading service.",
+    "f": [
+      "Crypto and equity research interfaces",
+      "Comparison and measurement tooling",
+      "Recorded methodology and evaluation work",
+      "Workspace-only and simulated components clearly separated"
+    ]
+  }
 ];
 function E(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
 var S={
@@ -137,9 +486,9 @@ var S={
 "Dream Portals":function(){var s="";for(var i=0;i<16;i++)s+='<circle cx="'+(5+i*53%190)+'" cy="'+(5+i*29%80)+'" r="1.3" fill="currentColor" style="animation:tw 3s infinite;animation-delay:'+i*.3+'s"/>';return '<svg viewBox="0 0 200 150" style="width:100%;height:100%">'+s+'<circle cx="160" cy="38" r="18" fill="currentColor" opacity=".9"/><g><rect width="26" height="12" rx="3" fill="currentColor"/><rect x="4" y="3" width="5" height="4" fill="#000"/><rect x="11" y="3" width="5" height="4" fill="#000"/><rect x="18" y="3" width="5" height="4" fill="#000"/><animateTransform attributeName="transform" type="translate" values="10 120;140 48" dur="9s" repeatCount="indefinite"/></g></svg>'},
 "Synthesize":function(){var t="BTC +0.6% &nbsp;&nbsp; ETH +0.6% &nbsp;&nbsp; SOL -0.1% &nbsp;&nbsp; QQQ -3.5% &nbsp;&nbsp; XLE +1.9% &nbsp;&nbsp; NVDA -4.2% &nbsp;&nbsp; ";return '<div style="position:absolute;top:14%;left:0;right:0;overflow:hidden;font-size:.74rem;white-space:nowrap"><div style="width:max-content;animation:mq 16s linear infinite">'+t+t+'</div></div><div style="width:78%;display:grid;gap:11px;margin-top:18%">'+["Technology","Crypto","Oil"].map(function(x,i){return '<div class="pp" style="animation-delay:'+i*.6+'s;display:flex;gap:8px;align-items:center;font-size:.8rem"><b style="width:72px">'+x+'</b><i style="flex:1;height:6px;border-radius:3px;background:currentColor;opacity:.4"></i></div>'}).join("")+'</div>'},
 "DIVERGE":function(){return '<svg viewBox="0 0 200 150" style="width:92%"><path pathLength="400" d="M8 110L30 98L50 112L75 74L98 84L125 36L148 52L192 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="400" style="animation:dr 6s ease-out infinite"/><circle cx="125" cy="36" r="6" fill="none" stroke="currentColor" stroke-width="2" style="animation:bl 6s infinite"/><text x="133" y="30" font-size="10" fill="currentColor" style="animation:bl 6s infinite">fade</text></svg>'},
-"Stashbook":function(){return '<span style="position:absolute;top:18%;font-size:.8rem">Rate this batch</span><div style="display:flex;gap:6px;font-size:1.9rem">'+[1,2,3,4,5].map(function(i){return '<span class="pp" style="animation-delay:'+i*.5+'s">★</span>'}).join("")+'</div><span style="position:absolute;bottom:16%;font-size:.8rem">367 flowers in the catalogue</span>'}
+"Stashbook":function(){return '<span style="position:absolute;top:18%;font-size:.8rem">Rate this batch</span><div style="display:flex;gap:6px;font-size:1.9rem">'+[1,2,3,4,5].map(function(i){return '<span class="pp" style="animation-delay:'+i*.5+'s">★</span>'}).join("")+'</div><span style="position:absolute;bottom:16%;font-size:.8rem">Discover · save · rate</span>'}
 };
-function scene(p){var f=S[p.n];return '<div class="sc" style="background:'+p.bg+';color:'+p.fg+'" role="img" aria-label="Animated preview of the '+E(p.n)+' site">'+(f?f():"")+'</div>'}
+function scene(p){var f=S[p.n];return '<div class="sc" style="background:'+p.bg+';color:'+p.fg+'" role="img" aria-label="Animated illustration for the '+E(p.n)+' site">'+(f?f():'<span style="padding:24px;font-size:1.4rem;text-align:center">'+E(p.line)+'</span>')+'</div>'}
 function mock(p,v){if(!v)return scene(p);
 var f=p.fg,s='<svg viewBox="0 0 400 300" role="img" aria-label="Illustration of the '+E(p.n)+' site" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="300" fill="'+p.bg+'"/><rect x="20" y="18" width="64" height="9" rx="4" fill="'+f+'"/><rect x="250" y="19" width="30" height="7" rx="3" fill="'+f+'" opacity=".4"/><rect x="292" y="19" width="30" height="7" rx="3" fill="'+f+'" opacity=".4"/><rect x="334" y="14" width="46" height="16" rx="8" fill="'+f+'"/>';
 if(v==0){var z=Math.max(20,Math.min(40,330/(p.n.length*.56)));s+='<circle cx="350" cy="230" r="110" fill="'+f+'" opacity=".1"/><text x="24" y="120" font-family="Inter,system-ui,sans-serif" font-weight="800" font-size="'+z+'" fill="'+f+'">'+E(p.n)+'</text><text x="24" y="150" font-family="system-ui,sans-serif" font-size="13" fill="'+f+'" opacity=".8">'+E(p.line)+'</text><rect x="24" y="178" width="118" height="36" rx="18" fill="'+f+'"/><rect x="24" y="250" width="352" height="2" fill="'+f+'" opacity=".25"/>'}
@@ -148,12 +497,12 @@ else{s+='<rect x="24" y="70" width="230" height="46" rx="16" fill="'+f+'" opacit
 return s+'</svg>'}
 function sty(p){return '--pb:'+p.bg+';--pf:'+p.fg}
 function box(id,g){document.getElementById(id).innerHTML=P.map(function(p,i){return p.g!==g?"":(g=="f"?
-'<button class="feat" type="button" data-i="'+i+'" style="'+sty(p)+'">'+mock(p,0)+'<h3>'+E(p.n)+'</h3><p class="k">'+E(p.kind)+'</p><p class="met">'+p.m[0]+'<small>'+E(p.m[1])+'</small></p></button>':
-'<button class="card" type="button" data-i="'+i+'">'+mock(p,0)+'<h3>'+E(p.n)+'</h3><p class="k">'+E(p.kind)+'</p></button>')}).join("")}
+'<button class="feat" type="button" data-i="'+i+'" style="'+sty(p)+'">'+mock(p,0)+'<span class="project-status">'+E(p.status)+'</span><h3>'+E(p.n)+'</h3><p class="k">'+E(p.kind)+'</p><p class="met">'+p.m[0]+'<small>'+E(p.m[1])+'</small></p></button>':
+'<button class="card" type="button" data-i="'+i+'">'+mock(p,0)+'<span class="project-status">'+E(p.status)+'</span><h3>'+E(p.n)+'</h3><p class="k">'+E(p.kind)+'</p></button>')}).join("")}
 box("feats","f");box("more","m");box("prod","p");
 var dl=document.getElementById("dlg"),mc=document.getElementById("mc");
 function open(i){var p=P[i];
-mc.innerHTML='<div class="mh" style="'+sty(p)+'"><h2 id="mt">'+E(p.n)+'</h2><p>'+E(p.kind)+'</p><button class="x" type="button" aria-label="Close" id="cl">×</button></div><div class="mb"><div class="cols"><div><p class="d">'+E(p.d)+'</p><ul class="ch">'+p.t.map(function(t){return "<li>"+E(t)+"</li>"}).join("")+'</ul></div><ul class="fl">'+p.f.map(function(x){return "<li>"+E(x)+"</li>"}).join("")+'</ul></div><div class="gal">'+(p.shots?p.shots.map(function(s){return '<img src="'+s+'" alt="Screenshot of '+E(p.n)+'">'}).join(""):[0].map(function(v){return "<div>"+mock(p,v)+"</div>"}).join(""))+'</div><a class="vis" href="'+p.u+'" target="_blank" rel="noopener">Open the live site</a></div>';
+mc.innerHTML='<div class="mh" style="'+sty(p)+'"><p class="modal-status">'+E(p.status)+'</p><h2 id="mt">'+E(p.n)+'</h2><p>'+E(p.kind)+'</p><button class="x" type="button" aria-label="Close" id="cl">×</button></div><div class="mb"><div class="cols"><div><p class="d">'+E(p.d)+'</p><ul class="ch">'+p.t.map(function(t){return "<li>"+E(t)+"</li>"}).join("")+'</ul></div><ul class="fl">'+p.f.map(function(x){return "<li>"+E(x)+"</li>"}).join("")+'</ul></div><div class="gal">'+(p.shots?p.shots.map(function(s){return '<img src="'+s+'" alt="Screenshot of '+E(p.n)+'">'}).join(""):[0].map(function(v){return "<div>"+mock(p,v)+"</div>"}).join(""))+'</div><p class="preview-note">Animated project illustration. '+(p.u?'Open the project to explore the actual interface.':'Public demo not yet available.')+'</p>'+(p.u?'<a class="vis" href="'+p.u+'" target="_blank" rel="noopener">'+E(p.linkLabel||'Explore the website')+'</a>':'')+'</div>';
 document.getElementById("cl").onclick=function(){dl.close()};dl.showModal();dl.scrollTop=0}
 document.addEventListener("click",function(e){var b=e.target.closest("[data-i]");if(b)open(+b.getAttribute("data-i"));else if(e.target===dl)dl.close()});
 var R=document.documentElement;try{var s=localStorage.getItem("theme");if(s)R.setAttribute("data-theme",s)}catch(x){}
