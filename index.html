@@ -199,16 +199,44 @@ header{border-bottom:1px solid var(--line)}.builder-hero{grid-template-columns:m
 .locator{display:inline-block;width:7px;height:7px;margin-right:7px;border-radius:50%;background:var(--ac)}.night-feature{position:relative;display:block;isolation:isolate;text-decoration:none;color:white;overflow:hidden;border:1px solid var(--line);border-radius:20px;background:#161c29}.night-feature img{width:100%;aspect-ratio:1.28;display:block;object-fit:cover;transition:transform .7s}.night-feature:hover img{transform:scale(1.024)}.night-caption{position:absolute;inset:auto 0 0;padding:55px 25px 24px;background:linear-gradient(transparent,#090a12f5)}.night-caption small{font-size:12px;letter-spacing:.06em}.night-caption strong{display:block;font:italic 400 clamp(37px,4.6vw,66px)/1.12 Georgia,serif;letter-spacing:-.045em}.night-caption span{font-size:13px;color:#e3efec}.night-caption b{font-family:system-ui}.hero-links a{min-height:40px;display:inline-flex;align-items:center}main>section,footer{border-top:1px solid var(--line)}
 @media(max-width:760px){.builder-hero{grid-template-columns:minmax(0,1fr);gap:28px}.night-feature img{aspect-ratio:1.72}.builder-intro h1 br{display:none}.builder-intro h1 em{margin-left:.12em}.builder-intro h1{font-size:clamp(50px,13.7vw,93px)}.night-caption{padding:32px 18px 17px}}
 @media(prefers-reduced-motion:reduce){.night-feature img{transition:none}.night-feature:hover img{transform:none}}
+
+.phone-feature {
+  display:grid; grid-template-columns:1.2fr 1fr; align-items:stretch;
+  overflow:hidden; margin:0 0 18px; border:1px solid #37404e;
+  border-radius:24px; color:#f5f3ef; background:#13171e; text-decoration:none;
+}
+.phone-copy {padding:clamp(24px,4vw,52px); align-self:center}
+.phone-copy small {color:#efaa96; font-size:.78rem; font-weight:600}
+.phone-copy h3 {font-size:clamp(2.1rem,5vw,4rem); letter-spacing:-.06em; line-height:1.02; margin:.42em 0 .3em}
+.phone-copy p {max-width:42ch; color:#c0c6cf; line-height:1.55; margin:0}
+.phone-copy strong {display:inline-block; border-bottom:1px solid #7f8895; padding-bottom:4px; margin-top:24px; font-size:.91rem}
+.phone-feature:hover strong {color:#ffba9f}
+.phone-feature:focus-visible {outline:3px solid var(--ac); outline-offset:4px}
+.phone-art {position:relative; overflow:hidden; min-height:265px; background:repeating-radial-gradient(ellipse at 55% 115%,transparent 0 19px,#efae8c36 20px,transparent 21px 35px),linear-gradient(125deg,#24242e,#663e40 58%,#a36656)}
+.phone-screen {position:absolute; top:20%; left:50%; width:174px; height:290px; padding:28px 15px; box-sizing:border-box; transform:translateX(-50%) rotate(9deg); border:3px solid #949199; border-radius:27px; background:linear-gradient(145deg,#282935,#101118); box-shadow:9px 14px 30px #18131c80}
+.phone-screen i {display:block; width:42px; height:7px; border-radius:6px; margin:-16px auto 28px; background:#090a0d}
+.phone-screen b,.phone-screen span {display:block; font-size:.81rem}
+.phone-screen span {margin:8px 0 16px; border:1px solid #cc8e83; border-radius:15px; padding:6px 11px; color:#ffcab6}
+@media(max-width:620px){.phone-feature{grid-template-columns:1fr}.phone-art{grid-row:1;min-height:155px}.phone-screen{top:13%;transform:translateX(-50%) rotate(9deg) scale(.85);transform-origin:top center}}
 </style>
 </head>
 <body>
 <div class="w">
-<header><span class="nm">Logan</span><nav><a href="#products">Projects</a><a href="#work">Client work</a><a href="#about">About</a><a href="#contact">Contact</a><button class="tg" id="th" type="button" aria-label="Switch light or dark theme">Theme</button></nav></header>
+<header><span class="nm">Logan</span><nav><a href="#work">Websites</a><a href="#products">Apps</a><a href="#about">About</a><a href="#contact">Contact</a><button class="tg" id="th" type="button" aria-label="Switch light or dark theme">Theme</button></nav></header>
 <main id="top"><div class="hero builder-hero">
-<div class="builder-intro"><p class="intro"><span class="locator"></span> Designer based in Toronto</p><h1>Hi, I’m<br><em>Logan.</em></h1><p class="lede">I’m a designer who makes websites and apps. I work with small businesses and build projects of my own, from a tasting journal to a bus ride to the moon.</p><div class="hero-links"><a href="#products">Explore my projects</a><a href="#about">About me</a></div></div>
+<div class="builder-intro"><p class="intro"><span class="locator"></span> Designer based in Toronto</p><h1>Hi, I’m<br><em>Logan.</em></h1><p class="lede">I’m a designer who makes websites and apps. I work with small businesses and build projects of my own, from a tasting journal to a bus ride to the moon.</p><div class="hero-links"><a href="#work">See my website work <span aria-hidden="true">↓</span></a><a href="#products">Explore my apps</a></div></div>
 <a class="night-feature" href="https://loganxaaryan-a11y.github.io/dream-portals/"><img src="assets/feature-moonride.webp" fetchpriority="high" alt="Moonlight over the mountains from a bus window"><div class="night-caption"><small>Independent project · Ambient audio</small><strong>Dream Portals</strong><span>Step inside <b aria-hidden="true">↗</b></span></div></a></div>
-<section id="products"><h2>Products and experiments</h2><p class="sub">A sleep experience, a collection journal, a game built around a single dot. Pick a project to see how it works.</p><div class="grid" id="prod"></div></section>
-<section id="work"><div class="section-heading"><h2>Client websites</h2><button type="button" class="motion-toggle" id="motion" aria-pressed="false">Pause motion</button></div><p class="sub">Websites for restaurants, shops and local businesses. Open a project to take a look around.</p><div class="feats" id="feats"></div></section>
+<section id="work"><div class="section-heading"><h2>Selected websites</h2><button type="button" class="motion-toggle" id="motion" aria-pressed="false">Pause motion</button></div><p class="sub">A phone shop on the Danforth, a burger spot in Maninagar and a few other places I’ve designed for.</p>
+<a class="phone-feature" href="https://tech-source-hub-reference.vercel.app/#phones" target="_blank" rel="noopener">
+  <div class="phone-copy">
+    <small>Retail website concept · Toronto</small>
+    <h3>The Tech Source Hub</h3>
+    <p>Pick a brand and a budget, then ask the Danforth shop what’s in stock. I designed the phone finder around that conversation.</p>
+    <strong>Try the phone finder <span aria-hidden="true">↗</span></strong>
+  </div>
+  <div class="phone-art" aria-hidden="true"><div class="phone-screen"><i></i><b>Which brand?</b><span>Google Pixel</span><b>Your budget</b><span>Under $500</span></div></div>
+</a><div class="feats" id="feats"></div></section>
+<section id="products"><h2>Products and experiments</h2><p class="sub">A bus ride to fall asleep to, a tasting journal and a game built around a single dot.</p><div class="grid" id="prod"></div></section>
 <section><h2>Studios, stories &amp; services</h2><p class="sub">More client work and a few ideas for businesses I’d like to design for.</p><div class="grid" id="more"></div></section>
 
 <section class="about" id="about"><div><p class="intro">The person behind the work</p><h2>A little about me.</h2></div><div><p>I’m Logan, a designer based in Toronto. My background is in marketing and retail, so I tend to think about the customer as much as the design. Can they find what they need? Is it easy to order or get in touch?</p><p>I design and build websites, and sometimes use AI to help along the way. Outside client work, I make things around my interests in film, games, music and the things I collect.</p><div class="capabilities"><span>Business websites</span><span>Menus &amp; catalogues</span><span>Landing pages</span><span>Interactive prototypes</span></div></div></section></main><footer id="contact"><h2>Get in touch.</h2><p class="sub">Email me about a project, or visit Sauce Studio for business websites and commissions.</p><div class="ln"><a href="mailto:loganxaaryan@gmail.com">Email Logan</a><a href="../sauce-studio/">Visit Sauce Studio</a><a href="https://github.com/loganxaaryan-a11y" target="_blank" rel="noopener">See the code on GitHub</a><a href="https://x.com/loganxbtc" target="_blank" rel="noopener">Message me on X</a></div></footer>
