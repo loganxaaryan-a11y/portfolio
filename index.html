@@ -48,7 +48,10 @@ section{padding:clamp(28px,6vw,70px) 0}
 h2{font-weight:800;font-size:clamp(1.9rem,5.4vw,3.4rem);letter-spacing:-.03em;line-height:1;margin:0 0 12px}
 .sub{color:var(--mute);max-width:54ch;margin:0 0 30px}
 .feats{display:grid;gap:18px}
-@media(min-width:900px){.feats{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:760px){
+  .feats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .feats .tech-source-card{grid-column:2;grid-row:2}
+}
 .feat{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:14px;background:var(--pb);color:var(--pf);border-radius:24px;padding:18px 18px 24px;transition:transform .25s}
 .feat:hover{transform:translateY(-4px)}.feat:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
 .feat svg,.card svg{display:block;width:100%;height:auto;border-radius:14px}
@@ -200,22 +203,13 @@ header{border-bottom:1px solid var(--line)}.builder-hero{grid-template-columns:m
 @media(max-width:760px){.builder-hero{grid-template-columns:minmax(0,1fr);gap:28px}.night-feature img{aspect-ratio:1.72}.builder-intro h1 br{display:none}.builder-intro h1 em{margin-left:.12em}.builder-intro h1{font-size:clamp(50px,13.7vw,93px)}.night-caption{padding:32px 18px 17px}}
 @media(prefers-reduced-motion:reduce){.night-feature img{transition:none}.night-feature:hover img{transform:none}}
 
-.hub-cover { perspective:720px; width:100%; height:100%; display:grid; place-items:center; overflow:hidden;
-  background:radial-gradient(ellipse at 50% 76%,#464253 0%,#22232e 42%,#11131b 83%); }
-.hub-spin { position:relative; width:27%; aspect-ratio:1/2; transform-style:preserve-3d;
-  transform:rotateZ(-11deg) rotateY(-22deg); animation:hub-turn 9s ease-in-out infinite; }
-.hub-face {position:absolute; inset:0; border-radius:14% / 7%; border:2px solid #b9b8c6;
-  box-shadow:0 0 0 1px #454653; backface-visibility:hidden; overflow:hidden; }
-.hub-front {transform:translateZ(3px); background:#11131c; }
-.hub-glass {position:absolute; inset:3%; border-radius:12% / 6%; overflow:hidden;
-  background:linear-gradient(150deg,#191729,#333a62 52%,#a299c4); }
-.hub-glass:before {content:""; position:absolute; inset:-20% -100%; transform:rotate(-35deg);
-  background:repeating-radial-gradient(ellipse at 38% 40%,transparent 0 5%,#c5c9ed 5.2%,#727aa7 5.8%,transparent 6.6%);}
-.hub-glass:after {content:""; position:absolute; top:4%; left:35%; width:30%; height:4%; border-radius:9px; background:#12121a}
-.hub-back {transform:rotateY(180deg) translateZ(3px); background:linear-gradient(130deg,#e0dfeb,#9b9aaf 40%,#757686 68%,#c9c8d4);}
-.hub-lenses {position:absolute; top:5%; left:8%; width:31%; height:26%; background:#9899ab; border:1px solid #e4e3ee; border-radius:25%; display:grid; place-items:center;}
-.hub-lenses i {width:67%; aspect-ratio:1; border-radius:50%; background:radial-gradient(circle at 38% 30%,#929db8 3%,#23304b 13%,#090c15 38%,#242635 55%,#a9aabb 62%,#434451 72%);}
-@keyframes hub-turn {0%,15%{transform:rotateZ(-11deg) rotateY(-22deg)}47%,62%{transform:rotateZ(6deg) rotateY(151deg)}100%{transform:rotateZ(-11deg) rotateY(338deg)}}
+.hub-handset{animation:hub-float 7s ease-in-out infinite;transform-origin:148px 150px}
+.hub-brand,.hub-budget,.hub-message{animation:hub-select 7s ease-in-out infinite;transform-box:fill-box;transform-origin:left center}
+.hub-budget{animation-delay:.8s}
+.hub-message{animation-name:hub-compose}
+@keyframes hub-float{0%,100%{transform:translateY(2px) rotate(-2deg)}50%{transform:translateY(-4px) rotate(1deg)}}
+@keyframes hub-select{0%,12%,95%,100%{opacity:.2;transform:translateX(-5px)}24%,82%{opacity:1;transform:translateX(0)}}
+@keyframes hub-compose{0%,42%,95%,100%{opacity:0;transform:translateY(7px)}54%,82%{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body>
@@ -224,7 +218,7 @@ header{border-bottom:1px solid var(--line)}.builder-hero{grid-template-columns:m
 <main id="top"><div class="hero builder-hero">
 <div class="builder-intro"><p class="intro"><span class="locator"></span> Designer based in Toronto</p><h1>Hi, I’m<br><em>Logan.</em></h1><p class="lede">I’m a designer who makes websites and apps. I work with small businesses and build projects of my own, from a tasting journal to a bus ride to the moon.</p><div class="hero-links"><a href="#work">See my website work <span aria-hidden="true">↓</span></a><a href="#products">Explore my apps</a></div></div>
 <a class="night-feature" href="https://loganxaaryan-a11y.github.io/dream-portals/"><img src="assets/feature-moonride.webp" fetchpriority="high" alt="Moonlight over the mountains from a bus window"><div class="night-caption"><small>Independent project · Ambient audio</small><strong>Dream Portals</strong><span>Step inside <b aria-hidden="true">↗</b></span></div></a></div>
-<section id="work"><div class="section-heading"><h2>Selected websites</h2><button type="button" class="motion-toggle" id="motion" aria-pressed="false">Pause motion</button></div><p class="sub">A wholesale showroom, a burger menu and a guide to 13 pool clubs.</p>
+<section id="work"><div class="section-heading"><h2>Selected websites</h2><button type="button" class="motion-toggle" id="motion" aria-pressed="false">Pause motion</button></div><p class="sub">Websites for a textile showroom, a burger spot, a Toronto phone shop and a network of pool clubs.</p>
 <div class="feats" id="feats"></div></section>
 <section id="products"><h2>Products and experiments</h2><p class="sub">A bus ride to fall asleep to, a tasting journal and a game built around a single dot.</p><div class="grid" id="prod"></div></section>
 <section><h2>Studios, stories &amp; services</h2><p class="sub">More client work and a few ideas for businesses I’d like to design for.</p><div class="grid" id="more"></div></section>
@@ -297,6 +291,31 @@ var P=[
     "shotCaption": "Actual website · Menu and ordering homepage",
     "brief": "Make a full restaurant menu easy to browse and turn into a WhatsApp order.",
     "tryIt": "Browse the menu, customise a combo and review the assembled order."
+  },
+  {
+    "n": "The Tech Source Hub",
+    "g": "f",
+    "kind": "Phone shop on the Danforth",
+    "u": "https://tech-source-hub-reference.vercel.app/#phones",
+    "bg": "#151620",
+    "fg": "#e4e2ef",
+    "line": "Find your next phone",
+    "t": [
+      "Retail design",
+      "Phone finder"
+    ],
+    "d": "For this Toronto shop concept, I built a finder around two questions customers ask at the counter: which brand and how much? Your choices become a WhatsApp message to the shop.",
+    "f": [
+      "Browse iPhone, Android and case collections",
+      "Choose a brand and budget",
+      "Review the enquiry before sending"
+    ],
+    "status": "Website concept",
+    "linkLabel": "Try the phone finder",
+    "m": [
+      "Phone finder",
+      "brand, budget & a WhatsApp enquiry"
+    ]
   },
   {
     "n": "A.S. Pool & Snooker Club",
@@ -381,27 +400,6 @@ var P=[
     ],
     "status": "Client website · Domain pending"
   },
-{
-  "n": "The Tech Source Hub",
-  "g": "m",
-  "kind": "Phone shop on the Danforth",
-  "u": "https://tech-source-hub-reference.vercel.app/#phones",
-  "bg": "#151620",
-  "fg": "#e4e2ef",
-  "line": "Find your next phone",
-  "t": [
-    "Retail design",
-    "Phone finder"
-  ],
-  "d": "For this Toronto shop concept, I built a finder around two questions customers ask at the counter: which brand and how much? Your choices become a WhatsApp message to the shop.",
-  "f": [
-    "Browse iPhone, Android and case collections",
-    "Choose a brand and budget",
-    "Review the enquiry before sending"
-  ],
-  "status": "Website concept",
-  "linkLabel": "Try the phone finder"
-},
   {
     "n": "Vantage",
     "g": "m",
@@ -602,8 +600,33 @@ var P=[
 ];
 function E(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
 var linenId=0;
+var hubId=0;
 var S={
-"The Tech Source Hub":function(){return '<div class="hub-cover" aria-hidden="true"><div class="hub-spin"><div class="hub-face hub-back"><span class="hub-lenses"><i></i><i></i></span></div><div class="hub-face hub-front"><span class="hub-glass"></span></div></div></div>'},
+"The Tech Source Hub":function(){
+  var id="hub-"+(++hubId);
+  return `<svg viewBox="0 0 400 300" aria-hidden="true">
+    <defs>
+      <linearGradient id="${id}-case" x2=".8" y2="1"><stop stop-color="#fff3e7"/><stop offset=".35" stop-color="#716b7e"/><stop offset=".7" stop-color="#2b2736"/><stop offset="1" stop-color="#aaa1ac"/></linearGradient>
+      <linearGradient id="${id}-glass" x2=".5" y2="1"><stop stop-color="#fbd5ac"/><stop offset=".42" stop-color="#ee8d6e"/><stop offset="1" stop-color="#523558"/></linearGradient>
+      <clipPath id="${id}-clip"><rect x="69" y="47" width="105" height="202" rx="15"/></clipPath>
+    </defs>
+    <rect width="400" height="300" fill="#20202a"/>
+    <circle cx="88" cy="147" r="137" fill="#2d2933"/>
+    <circle cx="88" cy="147" r="110" fill="none" stroke="#57454d" stroke-width=".8"/>
+    <g class="hub-handset"><g transform="rotate(-10 122 148)">
+      <rect x="62" y="40" width="120" height="218" rx="22" fill="url(#${id}-case)"/>
+      <rect x="65" y="43" width="113" height="210" rx="19" fill="#15121b"/>
+      <g clip-path="url(#${id}-clip)"><rect x="69" y="47" width="105" height="202" fill="url(#${id}-glass)"/>
+        <path d="M41 223Q106 205 131 137T208 60M41 235Q111 215 142 141T214 72M41 249Q118 224 153 147T225 88" fill="none" stroke="#ffd9b7" stroke-width="3" opacity=".7"/>
+      </g><rect x="103" y="53" width="38" height="7" rx="4" fill="#18151c"/>
+    </g></g>
+    <g font-family="Inter,system-ui,sans-serif">
+      <text x="201" y="87" fill="#f5e9df" font-size="20" font-weight="700">Phone finder</text>
+      <g class="hub-brand"><rect x="200" y="102" width="132" height="35" rx="17" fill="#393642"/><text x="215" y="125" fill="#fff2e8" font-size="14">Google Pixel</text><path d="m306 119 4 4 7-8" fill="none" stroke="#ffb48f" stroke-width="2"/></g>
+      <g class="hub-budget"><rect x="200" y="144" width="132" height="35" rx="17" fill="#393642"/><text x="215" y="167" fill="#fff2e8" font-size="14">Under $500</text><path d="m306 161 4 4 7-8" fill="none" stroke="#ffb48f" stroke-width="2"/></g>
+      <g class="hub-message"><path d="M212 193h135q10 0 10 10v29q0 10-10 10H215l-14 8v-45q0-12 11-12" fill="#f5c3a5"/><text x="213" y="214" fill="#382832" font-size="12">Hi! Any Pixels</text><text x="213" y="230" fill="#382832" font-size="12">under $500?</text></g>
+    </g></svg>`;
+},
 "Hari Handloom House":function(){var id="linen-"+(++linenId);return '<svg class="hh-scene" viewBox="0 0 400 300" aria-hidden="true"><defs><pattern id="'+id+'-weave" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M0 1H5M1 0V5" stroke="#fff" stroke-opacity=".17" stroke-width=".6"/></pattern><pattern id="'+id+'-stripe" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M5 0V24M9 0V24" stroke="#fff" stroke-opacity=".32" stroke-width="2"/></pattern><linearGradient id="'+id+'-shade" x2="1" y2="0"><stop stop-color="#000" stop-opacity=".16"/><stop offset=".3" stop-color="#fff" stop-opacity=".08"/><stop offset=".63" stop-color="#000" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity=".22"/></linearGradient></defs><rect width="400" height="300" fill="#eee9df"/><path d="M0 238L400 152V300H0Z" fill="#e4dccd"/><text x="24" y="29" fill="#7d735e" font-size="9" letter-spacing="2.2">THE TEXTILE EDIT</text><text x="375" y="29" text-anchor="end" fill="#7d735e" font-size="9" letter-spacing="1">BED &amp; BATH</text><ellipse cx="176" cy="229" rx="115" ry="13" fill="#192e39" opacity=".10"/><g class="hh-fabric"><path class="hh-colour" d="M69 62Q158 51 254 63L265 215Q223 231 187 220T84 227Z" fill="#aeb99b"/><path d="M69 62Q158 51 254 63L265 215Q223 231 187 220T84 227Z" fill="url(#'+id+'-stripe)"/><path d="M69 62Q158 51 254 63L265 215Q223 231 187 220T84 227Z" fill="url(#'+id+'-weave)"/><path d="M69 62Q158 51 254 63L265 215Q223 231 187 220T84 227Z" fill="url(#'+id+'-shade)"/><path d="M70 63Q161 78 254 64L255 91Q161 104 72 88Z" fill="#fff" fill-opacity=".18"/><path d="M84 217Q147 209 185 214T264 208" stroke="#fff" stroke-opacity=".45" fill="none"/><rect x="91" y="180" width="37" height="20" rx="1" fill="#f7f3ea"/><text x="109.5" y="193.5" font-family="Georgia,serif" font-size="11" text-anchor="middle" fill="#192e39">HH</text></g><g class="hh-towel"><ellipse cx="288" cy="228" rx="65" ry="11" fill="#192e39" opacity=".12"/><rect x="226" y="166" width="120" height="58" rx="9" fill="#d5c5a4"/><rect x="226" y="158" width="120" height="58" rx="9" fill="#f9f4e8"/><rect x="226" y="158" width="120" height="58" rx="9" fill="url(#'+id+'-weave)"/><path d="M234 192H338M234 197H338M234 202H338" stroke="#c9ba98" stroke-width="2"/><path d="M239 161H329" stroke="#fff" stroke-width="2" stroke-linecap="round"/><rect x="278" y="157" width="20" height="60" fill="#192e39"/><text x="288" y="189" text-anchor="middle" font-family="Georgia,serif" font-size="8" fill="#e5d5b7">HH</text></g><g transform="translate(310 66)"><circle cx="0" cy="0" r="10" fill="#aeb99b"/><circle class="hh-ring hh-ring-one" cx="0" cy="0" r="14" fill="none" stroke="#192e39"/><circle cx="0" cy="36" r="10" fill="#344e60"/><circle class="hh-ring hh-ring-two" cx="0" cy="36" r="14" fill="none" stroke="#192e39"/><circle cx="0" cy="72" r="10" fill="#c7a27d"/><circle class="hh-ring hh-ring-three" cx="0" cy="72" r="14" fill="none" stroke="#192e39"/></g><g class="hh-caption"><path d="M24 252H376" stroke="#c8bdab"/><text x="24" y="277" fill="#192e39" font-size="12" font-family="Georgia,serif">Soft textures. Considered details.</text><path d="M359 268H375V284M375 268L359 284" fill="none" stroke="#192e39" stroke-width="1.4"/></g></svg>'},
 "Badster Burgers":function(){return '<svg class="bb-scene" viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="#11151b"/><circle cx="156" cy="156" r="111" fill="#ffb800" opacity=".055"/><text x="22" y="28" fill="#ffb800" font-size="9" letter-spacing="2">BUILD YOUR CRAVING</text><g class="bb-food"><ellipse cx="171" cy="232" rx="101" ry="13" fill="#000" opacity=".4"/><path class="bb-wrapper" d="M65 223L112 203L273 223L229 243Z" fill="#f5ebd5"/><g class="bb-layer bb-bottom"><path d="M91 203Q171 214 251 203L244 220Q171 242 99 220Z" fill="#ce7c28"/><path d="M91 203Q171 194 251 203Q171 220 91 203Z" fill="#f8bd66"/></g><g class="bb-layer bb-patty"><rect x="91" y="184" width="160" height="24" rx="12" fill="#85401e"/><path d="M105 191L117 194M136 188L148 192M169 194L180 190M205 189L214 194M229 192L238 190" stroke="#ba6931" stroke-width="3" stroke-linecap="round"/><path d="M100 203Q171 214 241 202" stroke="#542b19" stroke-width="4" fill="none"/></g><g class="bb-layer bb-cheese"><path d="M91 181L226 173L252 184L221 189L204 205L189 189L118 191Z" fill="#ffce3b"/><path d="M100 183L226 178L238 184" fill="none" stroke="#ffe692" stroke-width="2"/></g><g class="bb-layer bb-greens"><path d="M88 174Q95 160 112 168Q124 156 141 167Q158 155 174 167Q190 155 205 167Q224 156 240 170Q259 164 255 178Q239 190 221 179Q204 189 188 178Q170 190 151 178Q132 188 116 177Q98 187 88 174" fill="#5c9c36"/><path d="M102 173Q173 163 239 174" fill="none" stroke="#a8d464" stroke-width="3"/></g><g class="bb-layer bb-top"><path d="M91 157C93 84 248 84 251 157Q170 171 91 157Z" fill="#e89d38"/><path d="M98 147C108 93 232 94 244 148" stroke="#f9c873" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M127 125l5 -3M153 111l5 2M179 119l5 -2M202 111l4 3M220 131l5 -1M156 139l5 1M190 142l4 -2" stroke="#fff0c0" stroke-width="3" stroke-linecap="round"/></g><g class="bb-sides"><path d="M55 154L52 113M64 154L65 105M74 154L79 113M85 154L87 119" stroke="#f5c458" stroke-width="7" stroke-linecap="round"/><path d="M42 146L95 146L88 200L52 200Z" fill="#eb6944"/><text x="69" y="177" text-anchor="middle" fill="#fff4de" font-size="9" font-weight="800">FRIES</text><path d="M262 146L305 146L299 205L269 205Z" fill="#a7c9dd"/><path d="M260 147H307" stroke="#eff6f9" stroke-width="5" stroke-linecap="round"/><path d="M284 146L288 114L298 108" stroke="#f6e5c8" stroke-width="4" fill="none"/><path d="M272 164L277 191" stroke="#d6e7ee" stroke-width="3"/></g></g><g class="bb-receipt"><path d="M249 75H379V242L371 238L363 242L355 238L347 242L339 238L331 242L323 238L315 242L307 238L299 242L291 238L283 242L275 238L267 242L259 238L249 242Z" fill="#f6efdf"/><text x="263" y="97" fill="#19202a" font-size="10" font-weight="800">YOUR COMBO</text><text x="263" y="113" fill="#74716b" font-size="7" letter-spacing="1">EXAMPLE ORDER</text><path d="M263 123H365" stroke="#d1c7b5" stroke-dasharray="2 3"/><g class="bb-order-lines" fill="#343834" font-size="9"><text x="263" y="141">Veg burger</text><text x="365" y="141" text-anchor="end">₹200</text><text x="263" y="158">Fries</text><text x="365" y="158" text-anchor="end">₹100</text><text x="263" y="175">Drink</text><text x="365" y="175" text-anchor="end">₹100</text></g><path d="M263 185H365" stroke="#d1c7b5"/><g class="bb-total" fill="#19202a" font-size="12" font-weight="800"><text x="263" y="205">Total</text><text x="365" y="205" text-anchor="end">₹400</text></g><text x="263" y="225" fill="#74716b" font-size="7">Illustrative prices</text></g><g class="bb-ready"><rect x="211" y="252" width="168" height="28" rx="14" fill="#25d366"/><text x="295" y="270" text-anchor="middle" fill="#042612" font-size="10" font-weight="800">Ready for WhatsApp ↗</text></g><text x="22" y="281" fill="#a4adb6" font-size="8" letter-spacing="1">100% VEGETARIAN</text></svg>'},
 "A.S. Pool & Snooker Club":function(){var balls="",colours=["#e9bc37","#3075ad","#c94738","#77549b","#11151b","#df8139","#2f855e","#bd413e","#e8bd41","#2c80b2","#9651ac","#dd8438","#b33b32","#3f895d","#e6bd3d"];var ends=[[306,105],[342,68],[278,72],[316,171],[271,142],[231,90],[354,207],[283,202],[213,204],[182,111],[168,71],[245,180],[132,184],[96,211],[334,124]];for(var row=0,i=0;row<5;row++){for(var j=0;j<=row;j++,i++){var x=229+row*14,y=140+(j-row/2)*16;balls+='<g class="pool-ball" style="--dx:'+(ends[i][0]-x)+'px;--dy:'+(ends[i][1]-y)+'px;--spin:'+(i%2?180:-180)+'deg"><circle cx="'+x+'" cy="'+(y+2)+'" r="8" fill="#001a12" opacity=".35"/><circle cx="'+x+'" cy="'+y+'" r="7.5" fill="'+colours[i]+'"/><circle cx="'+(x-2)+'" cy="'+(y-2)+'" r="2" fill="#fff" opacity=".35"/>'+(i===4?'<circle cx="'+x+'" cy="'+y+'" r="3.7" fill="#f7f4e9"/><text x="'+x+'" y="'+(y+2.5)+'" fill="#111" font-size="6" text-anchor="middle">8</text>':'')+'</g>'}}return '<svg class="pool-scene" viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="#071d1a"/><text x="21" y="27" fill="#d7e6bd" font-size="9" letter-spacing="2">ONE BREAK. YOUR NEXT GAME.</text><g class="pool-table"><rect x="16" y="48" width="368" height="190" rx="20" fill="#694c32"/><rect x="22" y="54" width="356" height="178" rx="16" fill="#8e6946"/><rect x="31" y="63" width="338" height="160" rx="9" fill="#12614e"/><path d="M38 70H362V216H38Z" fill="none" stroke="#28816a" stroke-width="3"/><path d="M111 70V216" stroke="#d9e5c1" stroke-opacity=".2"/><path d="M111 111A30 30 0 0 0 111 171" fill="none" stroke="#d9e5c1" stroke-opacity=".2"/><g fill="#04110e"><circle cx="36" cy="67" r="11"/><circle cx="200" cy="65" r="9"/><circle cx="365" cy="67" r="11"/><circle cx="36" cy="220" r="11"/><circle cx="200" cy="222" r="9"/><circle cx="365" cy="220" r="11"/></g><g fill="#d7c197"><circle cx="110" cy="57" r="2"/><circle cx="285" cy="57" r="2"/><circle cx="110" cy="229" r="2"/><circle cx="285" cy="229" r="2"/></g>'+balls+'<g class="pool-white"><circle cx="121" cy="142" r="8" fill="#002d20" opacity=".5"/><circle cx="121" cy="140" r="7.5" fill="#faf6e8"/><circle cx="119" cy="137" r="2" fill="#fff"/></g><g class="pool-cue"><path d="M-38 140H99" stroke="#251c15" stroke-width="7" stroke-linecap="round"/><path d="M-20 140H101" stroke="#d4b483" stroke-width="4.5" stroke-linecap="round"/><path d="M91 140H101" stroke="#f5e9c9" stroke-width="4"/><path d="M101 140H105" stroke="#7ab0c7" stroke-width="4"/></g></g><g class="pool-end"><rect x="77" y="104" width="246" height="75" rx="12" fill="#052d24" fill-opacity=".94" stroke="#b4cf94" stroke-opacity=".35"/><text x="200" y="137" text-anchor="middle" fill="#e5f5c0" font-size="24" font-weight="800">13 clubs.</text><text x="200" y="160" text-anchor="middle" fill="#d7e6bd" font-size="11">Find your next game ↗</text></g><text x="22" y="275" fill="#a7c1ad" font-size="9" letter-spacing="1.4">A.S. POOL &amp; SNOOKER CLUB</text><g class="pool-stage" fill="#e5f5c0"><circle cx="344" cy="271" r="3"/><circle cx="358" cy="271" r="3" opacity=".5"/><circle cx="372" cy="271" r="3" opacity=".25"/></g></svg>'},
@@ -628,7 +651,7 @@ else{s+='<rect x="24" y="70" width="230" height="46" rx="16" fill="'+f+'" opacit
 return s+'</svg>'}
 function sty(p){return '--pb:'+p.bg+';--pf:'+p.fg}
 function box(id,g){document.getElementById(id).innerHTML=P.map(function(p,i){return p.g!==g?"":(g=="f"?
-'<button class="feat" type="button" data-i="'+i+'" style="'+sty(p)+'">'+scene(p)+'<span class="project-status">'+E(p.status)+'</span><h3>'+E(p.n)+'</h3><p class="k">'+E(p.kind)+'</p><p class="met">'+p.m[0]+'<small>'+E(p.m[1])+'</small></p></button>':
+'<button class="feat'+(p.n==="The Tech Source Hub"?" tech-source-card":"")+'" type="button" data-i="'+i+'" style="'+sty(p)+'">'+scene(p)+'<span class="project-status">'+E(p.status)+'</span><h3>'+E(p.n)+'</h3><p class="k">'+E(p.kind)+'</p><p class="met">'+p.m[0]+'<small>'+E(p.m[1])+'</small></p></button>':
 '<button class="card" type="button" data-i="'+i+'">'+scene(p)+'<span class="project-status">'+E(p.status)+'</span><h3>'+E(p.n)+'</h3><p class="k">'+E(p.kind)+'</p></button>')}).join("")}
 box("feats","f");box("more","m");box("prod","p");
 var sceneObserver=typeof IntersectionObserver!=="undefined"?new IntersectionObserver(function(entries){entries.forEach(function(entry){entry.target.classList.toggle("is-visible",entry.isIntersecting);syncSvgMotion(entry.target)})},{threshold:.05}):null;
