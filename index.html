@@ -203,13 +203,12 @@ header{border-bottom:1px solid var(--line)}.builder-hero{grid-template-columns:m
 @media(max-width:760px){.builder-hero{grid-template-columns:minmax(0,1fr);gap:28px}.night-feature img{aspect-ratio:1.72}.builder-intro h1 br{display:none}.builder-intro h1 em{margin-left:.12em}.builder-intro h1{font-size:clamp(50px,13.7vw,93px)}.night-caption{padding:32px 18px 17px}}
 @media(prefers-reduced-motion:reduce){.night-feature img{transition:none}.night-feature:hover img{transform:none}}
 
-.hub-handset{animation:hub-float 7s ease-in-out infinite;transform-origin:148px 150px}
-.hub-brand,.hub-budget,.hub-message{animation:hub-select 7s ease-in-out infinite;transform-box:fill-box;transform-origin:left center}
-.hub-budget{animation-delay:.8s}
-.hub-message{animation-name:hub-compose}
-@keyframes hub-float{0%,100%{transform:translateY(2px) rotate(-2deg)}50%{transform:translateY(-4px) rotate(1deg)}}
-@keyframes hub-select{0%,12%,95%,100%{opacity:.2;transform:translateX(-5px)}24%,82%{opacity:1;transform:translateX(0)}}
-@keyframes hub-compose{0%,42%,95%,100%{opacity:0;transform:translateY(7px)}54%,82%{opacity:1;transform:translateY(0)}}
+.hub-device{transform-origin:200px 150px;animation:hub-hover 6s ease-in-out infinite}
+.hub-scan{animation:hub-sweep 4.5s ease-in-out infinite}
+.hub-orbit{animation:hub-transit 4.5s linear infinite}
+@keyframes hub-hover{0%,100%{transform:translateY(3px) rotate(-2deg)}50%{transform:translateY(-3px) rotate(2deg)}}
+@keyframes hub-sweep{0%,100%{transform:translateY(-83px)}50%{transform:translateY(91px)}}
+@keyframes hub-transit{from{stroke-dashoffset:8}to{stroke-dashoffset:-93}}
 </style>
 </head>
 <body>
@@ -604,28 +603,38 @@ var hubId=0;
 var S={
 "The Tech Source Hub":function(){
   var id="hub-"+(++hubId);
+  var dots="";
+  for(var row=0;row<18;row++){
+    for(var col=0;col<9;col++){
+      var x=160+col*10, y=64+row*10+4*Math.sin(row*.5+col*.5);
+      var intensity=.24+.65*(1+Math.cos(row*.5-col*.65))/2;
+      dots+='<circle cx="'+x+'" cy="'+y.toFixed(1)+'" r="1.35" opacity="'+intensity.toFixed(2)+'"/>';
+    }
+  }
   return `<svg viewBox="0 0 400 300" aria-hidden="true">
     <defs>
-      <linearGradient id="${id}-case" x2=".8" y2="1"><stop stop-color="#fff3e7"/><stop offset=".35" stop-color="#716b7e"/><stop offset=".7" stop-color="#2b2736"/><stop offset="1" stop-color="#aaa1ac"/></linearGradient>
-      <linearGradient id="${id}-glass" x2=".5" y2="1"><stop stop-color="#fbd5ac"/><stop offset=".42" stop-color="#ee8d6e"/><stop offset="1" stop-color="#523558"/></linearGradient>
-      <clipPath id="${id}-clip"><rect x="69" y="47" width="105" height="202" rx="15"/></clipPath>
+      <linearGradient id="${id}-rim" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#45495f"/><stop offset=".26" stop-color="#c2c7e1"/><stop offset=".48" stop-color="#303944"/><stop offset=".8" stop-color="#74b4b8"/><stop offset="1" stop-color="#ccecee"/></linearGradient>
+      <linearGradient id="${id}-beam" x2="0" y2="1"><stop stop-color="#60ffe3" stop-opacity="0"/><stop offset="1" stop-color="#60ffe3" stop-opacity=".52"/></linearGradient>
+      <radialGradient id="${id}-field"><stop stop-color="#1b3843"/><stop offset=".7" stop-color="#101921"/><stop offset="1" stop-color="#0a1017"/></radialGradient>
+      <clipPath id="${id}-screen"><rect x="151" y="43" width="98" height="213" rx="16"/></clipPath>
+      <pattern id="${id}-grid" width="15" height="15" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#80b9c6" opacity=".33"/></pattern>
     </defs>
-    <rect width="400" height="300" fill="#20202a"/>
-    <circle cx="88" cy="147" r="137" fill="#2d2933"/>
-    <circle cx="88" cy="147" r="110" fill="none" stroke="#57454d" stroke-width=".8"/>
-    <g class="hub-handset"><g transform="rotate(-10 122 148)">
-      <rect x="62" y="40" width="120" height="218" rx="22" fill="url(#${id}-case)"/>
-      <rect x="65" y="43" width="113" height="210" rx="19" fill="#15121b"/>
-      <g clip-path="url(#${id}-clip)"><rect x="69" y="47" width="105" height="202" fill="url(#${id}-glass)"/>
-        <path d="M41 223Q106 205 131 137T208 60M41 235Q111 215 142 141T214 72M41 249Q118 224 153 147T225 88" fill="none" stroke="#ffd9b7" stroke-width="3" opacity=".7"/>
-      </g><rect x="103" y="53" width="38" height="7" rx="4" fill="#18151c"/>
+    <rect width="400" height="300" fill="url(#${id}-field)"/><rect width="400" height="300" fill="url(#${id}-grid)"/>
+    <g fill="none" stroke="#58717c" stroke-width="1"><path d="M22 47V24h23m310 0h23v23M22 253v23h23m310 0h23v-23" opacity=".7"/>
+      <ellipse cx="200" cy="149" rx="153" ry="52" transform="rotate(-18 200 149)" opacity=".45"/></g>
+    <g class="hub-device"><g transform="rotate(12 200 150) skewY(-2)">
+      <rect x="144" y="36" width="112" height="227" rx="23" fill="url(#${id}-rim)"/>
+      <rect x="148" y="39" width="104" height="220" rx="20" fill="#060c13"/>
+      <g clip-path="url(#${id}-screen)"><rect x="151" y="43" width="98" height="213" fill="#101e2a"/><g fill="#82f1da">${dots}</g>
+        <g class="hub-scan"><rect x="151" y="110" width="98" height="39" fill="url(#${id}-beam)"/><path d="M151 150h98" stroke="#b8fff2" stroke-width="1.4"/></g>
+      </g><rect x="187" y="48" width="27" height="5" rx="3" fill="#040a11"/>
     </g></g>
-    <g font-family="Inter,system-ui,sans-serif">
-      <text x="201" y="87" fill="#f5e9df" font-size="20" font-weight="700">Phone finder</text>
-      <g class="hub-brand"><rect x="200" y="102" width="132" height="35" rx="17" fill="#393642"/><text x="215" y="125" fill="#fff2e8" font-size="14">Google Pixel</text><path d="m306 119 4 4 7-8" fill="none" stroke="#ffb48f" stroke-width="2"/></g>
-      <g class="hub-budget"><rect x="200" y="144" width="132" height="35" rx="17" fill="#393642"/><text x="215" y="167" fill="#fff2e8" font-size="14">Under $500</text><path d="m306 161 4 4 7-8" fill="none" stroke="#ffb48f" stroke-width="2"/></g>
-      <g class="hub-message"><path d="M212 193h135q10 0 10 10v29q0 10-10 10H215l-14 8v-45q0-12 11-12" fill="#f5c3a5"/><text x="213" y="214" fill="#382832" font-size="12">Hi! Any Pixels</text><text x="213" y="230" fill="#382832" font-size="12">under $500?</text></g>
-    </g></svg>`;
+    <g transform="rotate(-18 200 149)" fill="none">
+      <path d="M47 149a153 52 0 0 0 306 0" stroke="#71c3c9" stroke-width="1.1"/>
+      <path class="hub-orbit" pathLength="100" d="M47 149a153 52 0 0 0 306 0" stroke="#c2fff0" stroke-width="2.7" stroke-linecap="round" stroke-dasharray="7 94"/>
+    </g>
+    <g fill="#a4b1b9" font-family="monospace" font-size="8" letter-spacing="1.7"><text x="33" y="41">TSH</text><text x="365" y="265" text-anchor="end">DANFORTH</text></g>
+  </svg>`;
 },
 "Hari Handloom House":function(){var id="linen-"+(++linenId);return '<svg class="hh-scene" viewBox="0 0 400 300" aria-hidden="true"><defs><pattern id="'+id+'-weave" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M0 1H5M1 0V5" stroke="#fff" stroke-opacity=".17" stroke-width=".6"/></pattern><pattern id="'+id+'-stripe" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M5 0V24M9 0V24" stroke="#fff" stroke-opacity=".32" stroke-width="2"/></pattern><linearGradient id="'+id+'-shade" x2="1" y2="0"><stop stop-color="#000" stop-opacity=".16"/><stop offset=".3" stop-color="#fff" stop-opacity=".08"/><stop offset=".63" stop-color="#000" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity=".22"/></linearGradient></defs><rect width="400" height="300" fill="#eee9df"/><path d="M0 238L400 152V300H0Z" fill="#e4dccd"/><text x="24" y="29" fill="#7d735e" font-size="9" letter-spacing="2.2">THE TEXTILE EDIT</text><text x="375" y="29" text-anchor="end" fill="#7d735e" font-size="9" letter-spacing="1">BED &amp; BATH</text><ellipse cx="176" cy="229" rx="115" ry="13" fill="#192e39" opacity=".10"/><g class="hh-fabric"><path class="hh-colour" d="M69 62Q158 51 254 63L265 215Q223 231 187 220T84 227Z" fill="#aeb99b"/><path d="M69 62Q158 51 254 63L265 215Q223 231 187 220T84 227Z" fill="url(#'+id+'-stripe)"/><path d="M69 62Q158 51 254 63L265 215Q223 231 187 220T84 227Z" fill="url(#'+id+'-weave)"/><path d="M69 62Q158 51 254 63L265 215Q223 231 187 220T84 227Z" fill="url(#'+id+'-shade)"/><path d="M70 63Q161 78 254 64L255 91Q161 104 72 88Z" fill="#fff" fill-opacity=".18"/><path d="M84 217Q147 209 185 214T264 208" stroke="#fff" stroke-opacity=".45" fill="none"/><rect x="91" y="180" width="37" height="20" rx="1" fill="#f7f3ea"/><text x="109.5" y="193.5" font-family="Georgia,serif" font-size="11" text-anchor="middle" fill="#192e39">HH</text></g><g class="hh-towel"><ellipse cx="288" cy="228" rx="65" ry="11" fill="#192e39" opacity=".12"/><rect x="226" y="166" width="120" height="58" rx="9" fill="#d5c5a4"/><rect x="226" y="158" width="120" height="58" rx="9" fill="#f9f4e8"/><rect x="226" y="158" width="120" height="58" rx="9" fill="url(#'+id+'-weave)"/><path d="M234 192H338M234 197H338M234 202H338" stroke="#c9ba98" stroke-width="2"/><path d="M239 161H329" stroke="#fff" stroke-width="2" stroke-linecap="round"/><rect x="278" y="157" width="20" height="60" fill="#192e39"/><text x="288" y="189" text-anchor="middle" font-family="Georgia,serif" font-size="8" fill="#e5d5b7">HH</text></g><g transform="translate(310 66)"><circle cx="0" cy="0" r="10" fill="#aeb99b"/><circle class="hh-ring hh-ring-one" cx="0" cy="0" r="14" fill="none" stroke="#192e39"/><circle cx="0" cy="36" r="10" fill="#344e60"/><circle class="hh-ring hh-ring-two" cx="0" cy="36" r="14" fill="none" stroke="#192e39"/><circle cx="0" cy="72" r="10" fill="#c7a27d"/><circle class="hh-ring hh-ring-three" cx="0" cy="72" r="14" fill="none" stroke="#192e39"/></g><g class="hh-caption"><path d="M24 252H376" stroke="#c8bdab"/><text x="24" y="277" fill="#192e39" font-size="12" font-family="Georgia,serif">Soft textures. Considered details.</text><path d="M359 268H375V284M375 268L359 284" fill="none" stroke="#192e39" stroke-width="1.4"/></g></svg>'},
 "Badster Burgers":function(){return '<svg class="bb-scene" viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="#11151b"/><circle cx="156" cy="156" r="111" fill="#ffb800" opacity=".055"/><text x="22" y="28" fill="#ffb800" font-size="9" letter-spacing="2">BUILD YOUR CRAVING</text><g class="bb-food"><ellipse cx="171" cy="232" rx="101" ry="13" fill="#000" opacity=".4"/><path class="bb-wrapper" d="M65 223L112 203L273 223L229 243Z" fill="#f5ebd5"/><g class="bb-layer bb-bottom"><path d="M91 203Q171 214 251 203L244 220Q171 242 99 220Z" fill="#ce7c28"/><path d="M91 203Q171 194 251 203Q171 220 91 203Z" fill="#f8bd66"/></g><g class="bb-layer bb-patty"><rect x="91" y="184" width="160" height="24" rx="12" fill="#85401e"/><path d="M105 191L117 194M136 188L148 192M169 194L180 190M205 189L214 194M229 192L238 190" stroke="#ba6931" stroke-width="3" stroke-linecap="round"/><path d="M100 203Q171 214 241 202" stroke="#542b19" stroke-width="4" fill="none"/></g><g class="bb-layer bb-cheese"><path d="M91 181L226 173L252 184L221 189L204 205L189 189L118 191Z" fill="#ffce3b"/><path d="M100 183L226 178L238 184" fill="none" stroke="#ffe692" stroke-width="2"/></g><g class="bb-layer bb-greens"><path d="M88 174Q95 160 112 168Q124 156 141 167Q158 155 174 167Q190 155 205 167Q224 156 240 170Q259 164 255 178Q239 190 221 179Q204 189 188 178Q170 190 151 178Q132 188 116 177Q98 187 88 174" fill="#5c9c36"/><path d="M102 173Q173 163 239 174" fill="none" stroke="#a8d464" stroke-width="3"/></g><g class="bb-layer bb-top"><path d="M91 157C93 84 248 84 251 157Q170 171 91 157Z" fill="#e89d38"/><path d="M98 147C108 93 232 94 244 148" stroke="#f9c873" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M127 125l5 -3M153 111l5 2M179 119l5 -2M202 111l4 3M220 131l5 -1M156 139l5 1M190 142l4 -2" stroke="#fff0c0" stroke-width="3" stroke-linecap="round"/></g><g class="bb-sides"><path d="M55 154L52 113M64 154L65 105M74 154L79 113M85 154L87 119" stroke="#f5c458" stroke-width="7" stroke-linecap="round"/><path d="M42 146L95 146L88 200L52 200Z" fill="#eb6944"/><text x="69" y="177" text-anchor="middle" fill="#fff4de" font-size="9" font-weight="800">FRIES</text><path d="M262 146L305 146L299 205L269 205Z" fill="#a7c9dd"/><path d="M260 147H307" stroke="#eff6f9" stroke-width="5" stroke-linecap="round"/><path d="M284 146L288 114L298 108" stroke="#f6e5c8" stroke-width="4" fill="none"/><path d="M272 164L277 191" stroke="#d6e7ee" stroke-width="3"/></g></g><g class="bb-receipt"><path d="M249 75H379V242L371 238L363 242L355 238L347 242L339 238L331 242L323 238L315 242L307 238L299 242L291 238L283 242L275 238L267 242L259 238L249 242Z" fill="#f6efdf"/><text x="263" y="97" fill="#19202a" font-size="10" font-weight="800">YOUR COMBO</text><text x="263" y="113" fill="#74716b" font-size="7" letter-spacing="1">EXAMPLE ORDER</text><path d="M263 123H365" stroke="#d1c7b5" stroke-dasharray="2 3"/><g class="bb-order-lines" fill="#343834" font-size="9"><text x="263" y="141">Veg burger</text><text x="365" y="141" text-anchor="end">₹200</text><text x="263" y="158">Fries</text><text x="365" y="158" text-anchor="end">₹100</text><text x="263" y="175">Drink</text><text x="365" y="175" text-anchor="end">₹100</text></g><path d="M263 185H365" stroke="#d1c7b5"/><g class="bb-total" fill="#19202a" font-size="12" font-weight="800"><text x="263" y="205">Total</text><text x="365" y="205" text-anchor="end">₹400</text></g><text x="263" y="225" fill="#74716b" font-size="7">Illustrative prices</text></g><g class="bb-ready"><rect x="211" y="252" width="168" height="28" rx="14" fill="#25d366"/><text x="295" y="270" text-anchor="middle" fill="#042612" font-size="10" font-weight="800">Ready for WhatsApp ↗</text></g><text x="22" y="281" fill="#a4adb6" font-size="8" letter-spacing="1">100% VEGETARIAN</text></svg>'},
