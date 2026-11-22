@@ -203,8 +203,13 @@ header{border-bottom:1px solid var(--line)}.builder-hero{grid-template-columns:m
 @media(max-width:760px){.builder-hero{grid-template-columns:minmax(0,1fr);gap:28px}.night-feature img{aspect-ratio:1.72}.builder-intro h1 br{display:none}.builder-intro h1 em{margin-left:.12em}.builder-intro h1{font-size:clamp(50px,13.7vw,93px)}.night-caption{padding:32px 18px 17px}}
 @media(prefers-reduced-motion:reduce){.night-feature img{transition:none}.night-feature:hover img{transform:none}}
 
+.hub-pixel{animation:hub-charge 8s cubic-bezier(.45,0,.2,1) infinite}
+@keyframes hub-charge{
+  0%,18%,93%,100%{transform:translate(0,0)}
+  45%,67%{transform:translate(var(--dx),var(--dy))}
+}
 .hub-device{transform-origin:200px 150px;animation:hub-hover 6s ease-in-out infinite}
-.hub-scan{animation:hub-sweep 4.5s ease-in-out infinite}
+.hub-scan{animation:hub-sweep 8s ease-in-out infinite}
 .hub-orbit{animation:hub-transit 4.5s linear infinite}
 @keyframes hub-hover{0%,100%{transform:translateY(3px) rotate(-2deg)}50%{transform:translateY(-3px) rotate(2deg)}}
 @keyframes hub-sweep{0%,100%{transform:translateY(-83px)}50%{transform:translateY(91px)}}
@@ -608,7 +613,15 @@ var S={
     for(var col=0;col<9;col++){
       var x=160+col*10, y=64+row*10+4*Math.sin(row*.5+col*.5);
       var intensity=.24+.65*(1+Math.cos(row*.5-col*.65))/2;
-      dots+='<circle cx="'+x+'" cy="'+y.toFixed(1)+'" r="1.35" opacity="'+intensity.toFixed(2)+'"/>';
+      // Map each grid row to a horizontal slice of the shop's lightning mark.
+      var upper=row<9;
+      var t=(row%9)/8;
+      var left=upper?217-44*t:199-16*t;
+      var right=upper?219-16*t:228-43*t;
+      var targetX=left+(right-left)*col/8;
+      var targetY=upper?91+63*t:147+60*t;
+      var offset='--dx:'+(targetX-x).toFixed(2)+'px;--dy:'+(targetY-y).toFixed(2)+'px';
+      dots+='<circle class="hub-pixel" style="'+offset+'" cx="'+x+'" cy="'+y.toFixed(1)+'" r="1.35" opacity="'+intensity.toFixed(2)+'"/>';
     }
   }
   return `<svg viewBox="0 0 400 300" aria-hidden="true">
