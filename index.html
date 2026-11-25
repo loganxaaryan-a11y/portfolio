@@ -101,7 +101,7 @@ footer{padding:clamp(40px,8vw,100px) 0 56px}
 @keyframes ping{0%{transform:scale(.4);opacity:1}100%{transform:scale(3);opacity:0}}
 @keyframes fill{0%,100%{background:transparent}35%,65%{background:currentColor}}
 @keyframes bl{0%,55%{opacity:0}65%,90%{opacity:1}100%{opacity:0}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.sc *{animation:none!important}.pp{opacity:1}.sc .w:first-of-type{opacity:1}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}:root:not([data-motion-opt-in]) .sc *{animation:none!important}:root:not([data-motion-opt-in]) .pp{opacity:1}:root:not([data-motion-opt-in]) .sc .w:first-of-type{opacity:1}}
 
 /* Portfolio context and restrained editorial details. */
 .intro{font-size:.78rem;line-height:1.6;letter-spacing:.09em;text-transform:uppercase;font-weight:600;color:var(--mute);margin:0 0 22px;max-width:46ch}
@@ -149,7 +149,7 @@ footer{padding:clamp(40px,8vw,100px) 0 56px}
 .try-flow{padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
 .try-flow p{margin:0;max-width:65ch}
 @media(max-width:480px){.preview-bar>span:last-child{display:none}.mb{gap:22px}}
-@media(prefers-reduced-motion:reduce){.sc *{animation:none!important}.hh-fabric{transform:rotate(-3deg)}.hh-towel,.hh-caption,.hh-ring-one{opacity:1}.hh-ring-two,.hh-ring-three{opacity:0}}
+@media(prefers-reduced-motion:reduce){:root:not([data-motion-opt-in]) .sc *{animation:none!important}:root:not([data-motion-opt-in]) .hh-fabric{transform:rotate(-3deg)}:root:not([data-motion-opt-in]) .hh-towel,:root:not([data-motion-opt-in]) .hh-caption,:root:not([data-motion-opt-in]) .hh-ring-one{opacity:1}:root:not([data-motion-opt-in]) .hh-ring-two,:root:not([data-motion-opt-in]) .hh-ring-three{opacity:0}}
 
 /* Choreographed project stories. */
 .bb-scene,.pool-scene{width:100%;height:100%;overflow:hidden}
@@ -185,7 +185,7 @@ footer{padding:clamp(40px,8vw,100px) 0 56px}
 .section-heading h2{margin:0}
 html[data-motion="paused"] .sc *{animation-play-state:paused!important}
 @media(max-width:480px){.section-heading{align-items:center}.motion-toggle{padding:7px 10px;font-size:.68rem}}
-@media(prefers-reduced-motion:reduce){.bb-layer,.bb-sides,.bb-receipt,.bb-order-lines,.bb-total,.bb-ready,.bb-wrapper{opacity:1;transform:none}.bb-food{transform:translateX(-29px) scale(.78)}.pool-ball{transform:translate(var(--dx),var(--dy))}.pool-white{transform:translate(37px,25px)}.pool-cue{display:none}.pool-end{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){:root:not([data-motion-opt-in]) .bb-layer,:root:not([data-motion-opt-in]) .bb-sides,:root:not([data-motion-opt-in]) .bb-receipt,:root:not([data-motion-opt-in]) .bb-order-lines,:root:not([data-motion-opt-in]) .bb-total,:root:not([data-motion-opt-in]) .bb-ready,:root:not([data-motion-opt-in]) .bb-wrapper{opacity:1;transform:none}:root:not([data-motion-opt-in]) .bb-food{transform:translateX(-29px) scale(.78)}:root:not([data-motion-opt-in]) .pool-ball{transform:translate(var(--dx),var(--dy))}:root:not([data-motion-opt-in]) .pool-white{transform:translate(37px,25px)}:root:not([data-motion-opt-in]) .pool-cue{display:none}:root:not([data-motion-opt-in]) .pool-end{opacity:1;transform:none}}
 .bb-bottom{animation-name:bb-layer-0;animation-delay:0s}
 @keyframes bb-layer-0{0%,2%{opacity:0;transform:translateY(-160px)}7%{opacity:1;transform:translateY(5px)}10%,90%{opacity:1;transform:translateY(0)}97%,100%{opacity:0;transform:translateY(0)}}
 .bb-patty{animation-name:bb-layer-1;animation-delay:0s}
@@ -214,20 +214,29 @@ header{border-bottom:1px solid var(--line)}.builder-hero{grid-template-columns:m
 @keyframes hub-hover{0%,100%{transform:translateY(3px) rotate(-2deg)}50%{transform:translateY(-3px) rotate(2deg)}}
 @keyframes hub-sweep{0%,100%{transform:translateY(-83px)}50%{transform:translateY(91px)}}
 @keyframes hub-transit{from{stroke-dashoffset:8}to{stroke-dashoffset:-93}}
+/* Compact folio masthead keeps the selected work in view. */
+.folio-title{padding:clamp(32px,5vw,64px) 0 clamp(22px,3vw,38px)}
+.folio-title h1{font-size:clamp(2.9rem,7.8vw,6rem);line-height:1.04;letter-spacing:-.065em}
+.folio-title i{font-family:Georgia,serif;font-weight:400;color:var(--ac)}
+.folio-title p{margin:10px 0 0;color:var(--mute)}
+#work{padding-top:20px}.section-heading{align-items:center;margin-bottom:18px}
+main section h2{font-size:clamp(1.4rem,3.1vw,2.15rem)}
+#products h2,#products+section h2{margin-bottom:22px}
+.motion-toggle{min-height:44px;padding-inline:14px;font-size:.82rem}
+.feat:after,.card:after{content:"View project";padding-top:4px}
+@media(min-width:900px){.feats{grid-template-columns:repeat(2,minmax(0,1fr))}.feats .tech-source-card{grid-column:auto;grid-row:auto}.feats .sc{aspect-ratio:1.95}.feats .sc>svg{width:100%;height:100%;min-height:0}}
 </style>
 </head>
 <body>
 <div class="w">
 <header><span class="nm">Logan</span><nav><a href="#work">Websites</a><a href="#products">Apps</a><a href="#about">About</a><a href="#contact">Contact</a><button class="tg" id="th" type="button" aria-label="Switch light or dark theme">Theme</button></nav></header>
-<main id="top"><div class="hero builder-hero">
-<div class="builder-intro"><p class="intro"><span class="locator"></span> Designer based in Toronto</p><h1>Hi, I’m<br><em>Logan.</em></h1><p class="lede">I’m a designer who makes websites and apps. I work with small businesses and build projects of my own, from a tasting journal to a bus ride to the moon.</p><div class="hero-links"><a href="#work">See my website work <span aria-hidden="true">↓</span></a><a href="#products">Explore my apps</a></div></div>
-<a class="night-feature" href="https://loganxaaryan-a11y.github.io/dream-portals/"><img src="assets/feature-moonride.webp" fetchpriority="high" alt="Moonlight over the mountains from a bus window"><div class="night-caption"><small>Independent project · Ambient audio</small><strong>Dream Portals</strong><span>Step inside <b aria-hidden="true">↗</b></span></div></a></div>
-<section id="work"><div class="section-heading"><h2>Selected websites</h2><button type="button" class="motion-toggle" id="motion" aria-pressed="false">Pause motion</button></div><p class="sub">Websites for a textile showroom, a burger spot, a Toronto phone shop and a network of pool clubs.</p>
+<main id="top"><div class="folio-title"><h1>Websites <i>&amp;</i> apps.</h1><p>Designed and built by Logan in Toronto.</p></div>
+<section id="work"><div class="section-heading"><h2>Selected websites</h2><button type="button" class="motion-toggle" id="motion" aria-pressed="false">Pause motion</button></div>
 <div class="feats" id="feats"></div></section>
-<section id="products"><h2>Products and experiments</h2><p class="sub">A bus ride to fall asleep to, a tasting journal and a game built around a single dot.</p><div class="grid" id="prod"></div></section>
-<section><h2>Studios, stories &amp; services</h2><p class="sub">More client work and a few ideas for businesses I’d like to design for.</p><div class="grid" id="more"></div></section>
+<section id="products"><h2>Independent projects</h2><div class="grid" id="prod"></div></section>
+<section><h2>More websites</h2><div class="grid" id="more"></div></section>
 
-<section class="about" id="about"><div><p class="intro">The person behind the work</p><h2>A little about me.</h2></div><div><p>I’m Logan, a designer based in Toronto. My background is in marketing and retail, so I tend to think about the customer as much as the design. Can they find what they need? Is it easy to order or get in touch?</p><p>I design and build websites, and sometimes use AI to help along the way. Outside client work, I make things around my interests in film, games, music and the things I collect.</p><div class="capabilities"><span>Business websites</span><span>Menus &amp; catalogues</span><span>Landing pages</span><span>Interactive prototypes</span></div></div></section></main><footer id="contact"><h2>Get in touch.</h2><p class="sub">Email me about a project, or visit Sauce Studio for business websites and commissions.</p><div class="ln"><a href="mailto:loganxaaryan@gmail.com">Email Logan</a><a href="../sauce-studio/">Visit Sauce Studio</a><a href="https://github.com/loganxaaryan-a11y" target="_blank" rel="noopener">See the code on GitHub</a><a href="https://x.com/loganxbtc" target="_blank" rel="noopener">Message me on X</a></div></footer>
+<section class="about" id="about"><h2>About Logan</h2><p>I’m a Toronto designer with a background in retail and marketing. I build websites for businesses through Sauce Studio, and make independent apps for music, film and play.</p></section></main><footer id="contact"><h2>Get in touch.</h2><div class="ln"><a href="mailto:loganxaaryan@gmail.com">Email Logan</a><a href="../sauce-studio/">Visit Sauce Studio</a><a href="https://github.com/loganxaaryan-a11y" target="_blank" rel="noopener">See the code on GitHub</a><a href="https://x.com/loganxbtc" target="_blank" rel="noopener">Message me on X</a></div></footer>
 </div>
 <dialog id="dlg" aria-labelledby="mt"><div id="mc"></div></dialog>
 <script>
@@ -673,11 +682,11 @@ else{s+='<rect x="24" y="70" width="230" height="46" rx="16" fill="'+f+'" opacit
 return s+'</svg>'}
 function sty(p){return '--pb:'+p.bg+';--pf:'+p.fg}
 function box(id,g){document.getElementById(id).innerHTML=P.map(function(p,i){return p.g!==g?"":(g=="f"?
-'<button class="feat'+(p.n==="The Tech Source Hub"?" tech-source-card":"")+'" type="button" data-i="'+i+'" style="'+sty(p)+'">'+scene(p)+'<span class="project-status">'+E(p.status)+'</span><h3>'+E(p.n)+'</h3><p class="k">'+E(p.kind)+'</p><p class="met">'+p.m[0]+'<small>'+E(p.m[1])+'</small></p></button>':
+'<button class="feat'+(p.n==="The Tech Source Hub"?" tech-source-card":"")+'" type="button" data-i="'+i+'" style="'+sty(p)+'">'+scene(p)+'<span class="project-status">'+E(p.status)+'</span><h3>'+E(p.n)+'</h3><p class="k">'+E(p.kind)+'</p></button>':
 '<button class="card" type="button" data-i="'+i+'">'+scene(p)+'<span class="project-status">'+E(p.status)+'</span><h3>'+E(p.n)+'</h3><p class="k">'+E(p.kind)+'</p></button>')}).join("")}
 box("feats","f");box("more","m");box("prod","p");
 var sceneObserver=typeof IntersectionObserver!=="undefined"?new IntersectionObserver(function(entries){entries.forEach(function(entry){entry.target.classList.toggle("is-visible",entry.isIntersecting);syncSvgMotion(entry.target)})},{threshold:.05}):null;
-function syncSvgMotion(scene){var paused=R.getAttribute("data-motion")==="paused"||window.matchMedia("(prefers-reduced-motion: reduce)").matches||!scene.classList.contains("is-visible");scene.querySelectorAll("svg").forEach(function(svg){if(typeof svg.pauseAnimations==="function"){if(paused)svg.pauseAnimations();else svg.unpauseAnimations()}})}
+function syncSvgMotion(scene){var paused=R.getAttribute("data-motion")==="paused"||!scene.classList.contains("is-visible");scene.querySelectorAll("svg").forEach(function(svg){if(typeof svg.pauseAnimations==="function"){if(paused)svg.pauseAnimations();else svg.unpauseAnimations()}})}
 function watchScenes(root){root.querySelectorAll(".sc").forEach(function(el){if(sceneObserver)sceneObserver.observe(el);else {el.classList.add("is-visible");syncSvgMotion(el)}})}
 var R=document.documentElement;
 watchScenes(document);
@@ -690,9 +699,29 @@ document.addEventListener("click",function(e){var b=e.target.closest("[data-i]")
 var R=document.documentElement;try{var s=localStorage.getItem("theme");if(s)R.setAttribute("data-theme",s)}catch(x){}
 document.getElementById("th").onclick=function(){var d=R.getAttribute("data-theme")!=="light",n=d?"light":"dark";R.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(x){}};
 
-var motionButton=document.getElementById("motion");
-motionButton.onclick=function(){var pause=R.getAttribute("data-motion")!=="paused";R.setAttribute("data-motion",pause?"paused":"running");motionButton.setAttribute("aria-pressed",String(pause));motionButton.textContent=pause?"Resume motion":"Pause motion";document.querySelectorAll(".sc").forEach(syncSvgMotion)};
-window.matchMedia("(prefers-reduced-motion: reduce)").addEventListener("change",function(){document.querySelectorAll(".sc").forEach(syncSvgMotion)});
+const motionButton = document.getElementById("motion");
+const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+let manualMotion = null;
+
+function updateMotion() {
+  const playing = manualMotion ?? !motionPreference.matches;
+  R.setAttribute("data-motion", playing ? "running" : "paused");
+  motionButton.textContent = playing ? "Pause motion" : "Play motion";
+  motionButton.setAttribute("aria-pressed", String(!playing));
+  document.querySelectorAll(".sc").forEach(syncSvgMotion);
+}
+
+motionButton.onclick = function () {
+  manualMotion = R.getAttribute("data-motion") === "paused";
+  if (manualMotion) R.setAttribute("data-motion-opt-in", "");
+  updateMotion();
+};
+motionPreference.addEventListener("change", function () {
+  manualMotion = null;
+  R.removeAttribute("data-motion-opt-in");
+  updateMotion();
+});
+updateMotion();
 </script>
 </body>
 </html>
