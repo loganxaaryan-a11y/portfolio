@@ -223,8 +223,19 @@ header{border-bottom:1px solid var(--line)}.builder-hero{grid-template-columns:m
 main section h2{font-size:clamp(1.4rem,3.1vw,2.15rem)}
 #products h2,#products+section h2{margin-bottom:22px}
 .motion-toggle{min-height:44px;padding-inline:14px;font-size:.82rem}
-.feat:after,.card:after{content:"View project";padding-top:4px}
+.feat:after,.card:after{content:none}
+.feat .k,.card .k{line-height:1.42;text-wrap:pretty}
+.case-layout{padding:clamp(20px,4vw,36px);display:grid;gap:clamp(20px,3vw,34px);align-items:start}
+.case-copy{min-width:0}.case-copy .d{line-height:1.5;text-wrap:pretty}
+.case-copy .vis{display:inline-flex;align-items:center;gap:9px;margin-top:18px;background:var(--pb);color:var(--pf);border:1px solid currentColor}
+.case-layout .fl{font-size:.94rem;line-height:1.48}
+.case-visual{margin:0;min-width:0}
+.case-visual img{display:block;width:100%;height:auto;border-radius:12px}
+.case-visual .sc{aspect-ratio:4/3}
+@media(min-width:740px){.case-layout{grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);row-gap:22px}.case-layout .case-visual{grid-column:2;grid-row:1 / span 2}.case-layout .fl{grid-column:1}}
 @media(min-width:900px){.feats{grid-template-columns:repeat(2,minmax(0,1fr))}.feats .tech-source-card{grid-column:auto;grid-row:auto}.feats .sc{aspect-ratio:1.95}.feats .sc>svg{width:100%;height:100%;min-height:0}}
+.tone-fan {transform-origin:150px 137px;animation:salon-sway 7s ease-in-out infinite alternate}
+@keyframes salon-sway {from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
 .cook-steam { animation: cookbook-steam 3s ease-in-out infinite alternate; }
 @keyframes cookbook-steam { from { transform: translateY(2px); opacity: .55; } to { transform: translateY(-3px); opacity: 1; } }
 </style>
@@ -246,7 +257,7 @@ var P=[
   {
     "n": "Hari Handloom House",
     "g": "f",
-    "kind": "Wholesale textile showroom",
+    "kind": "Wholesale textiles, down to the size and finish",
     "u": "https://harihandloomhouse.in",
     "bg": "#192e39",
     "fg": "#f1e6d3",
@@ -255,30 +266,23 @@ var P=[
       "B2B",
       "catalogue & tailored enquiries"
     ],
-    "t": [
-      "Product catalogue",
-      "Hospitality",
-      "Corporate gifting"
-    ],
-    "d": "A website for a wholesale textile business in Ahmedabad. Retailers, hotels and gift buyers can browse the brands, check product details and ask for a quote on WhatsApp.",
+    "d": "Hari’s showroom carries four textile brands and its own bedding line. A buyer can go from a fabric photograph to a specific size, check the reference price and ask the showroom for that exact set.",
     "f": [
-      "Browse bed and bath collections by brand",
-      "Explore sizes, product photos and reference prices",
-      "Dedicated hospitality and gifting information",
-      "Product-specific WhatsApp enquiries"
+      "Zoom from the collection view into fabric detail.",
+      "Compare stripes, solids, dobby and jacquard in Hari’s own range.",
+      "Include quantities, preferred sizes and delivery city in a bulk enquiry."
     ],
     "status": "Client website",
     "shots": [
       "assets/hari.webp"
     ],
     "shotCaption": "Actual website · Homepage",
-    "brief": "Bring a broad wholesale range into one clear, branded showroom.",
-    "tryIt": "Explore a collection, open a product and follow its enquiry path."
+    "linkLabel": "Explore the collections"
   },
   {
     "n": "Badster Burgers",
     "g": "f",
-    "kind": "Restaurant menu & ordering experience",
+    "kind": "A late-night menu with a cart that remembers",
     "u": "https://badsterburgers.in",
     "bg": "#07090c",
     "fg": "#ffb800",
@@ -287,43 +291,32 @@ var P=[
       "Menu → order",
       "combos, extras & WhatsApp"
     ],
-    "t": [
-      "Interactive menu",
-      "Combo builder",
-      "WhatsApp ordering"
-    ],
-    "d": "A website for a vegetarian burger restaurant in Maninagar. Browse the menu, put together a combo, add extras and send the order on WhatsApp.",
+    "d": "Ordering a burger here means choosing the fries, the seasoning and the drink. The combo builder keeps those choices together as one order and recalculates the subtotal as you go.",
     "f": [
-      "Search and category filters for the menu",
-      "Combos and extras in one ordering flow",
-      "Opening hours and restaurant information",
-      "An order summary ready to send on WhatsApp"
+      "Switch between a cold drink and a shake at different combo prices.",
+      "Leave and return to the same draft cart on your device.",
+      "Review the WhatsApp order text. Sending is pending the restaurant’s number."
     ],
     "status": "Client website",
     "shots": [
       "assets/badster.webp"
     ],
     "shotCaption": "Actual website · Menu and ordering homepage",
-    "brief": "Make a full restaurant menu easy to browse and turn into a WhatsApp order.",
-    "tryIt": "Browse the menu, customise a combo and review the assembled order."
+    "linkLabel": "Build a combo"
   },
   {
     "n": "The Tech Source Hub",
     "g": "f",
-    "kind": "Phone shop on the Danforth",
+    "kind": "A phone finder and a repair desk",
     "u": "https://tech-source-hub-reference.vercel.app/#phones",
     "bg": "#151620",
     "fg": "#e4e2ef",
     "line": "Find your next phone",
-    "t": [
-      "Retail design",
-      "Phone finder"
-    ],
-    "d": "For this Toronto shop concept, I built a finder around two questions customers ask at the counter: which brand and how much? Your choices become a WhatsApp message to the shop.",
+    "d": "The Danforth shop has two different conversations at the counter. Phone buyers start with brand and budget. Repair customers start with their device and what went wrong. Each flow drafts its own WhatsApp enquiry.",
     "f": [
-      "Browse iPhone, Android and case collections",
-      "Choose a brand and budget",
-      "Review the enquiry before sending"
+      "Pointer movement steers the opening particle scene.",
+      "Browse 13 accessories and open an item for a closer look.",
+      "Review the enquiry before handing it off to the shop."
     ],
     "status": "Website concept",
     "linkLabel": "Try the phone finder",
@@ -335,7 +328,7 @@ var P=[
   {
     "n": "A.S. Pool & Snooker Club",
     "g": "f",
-    "kind": "Multi-location club website",
+    "kind": "One break shot, 13 clubs, four cities",
     "u": "https://loganxaaryan-a11y.github.io/a-s-pool-snooker-creative-v4/",
     "bg": "#062b27",
     "fg": "#e5f5c0",
@@ -344,66 +337,49 @@ var P=[
       "13 clubs",
       "one place to explore the network"
     ],
-    "t": [
-      "Branch discovery",
-      "Bilingual",
-      "Motion design"
-    ],
-    "d": "A website for a network of pool and snooker clubs across Gujarat. An animated break opens the site, followed by club locations, directions and guides to the games. I developed four design options for the client.",
+    "d": "An animated break opens the club directory. Pick a pin and the map follows the selected club. On a phone, the shortest route through the site is straight to directions. This was the fourth design direction I developed for the club.",
     "f": [
-      "13 verified branch locations",
-      "English and Gujarati content",
-      "City search, nearby clubs and directions",
-      "Game guides and an optional animated break intro"
+      "Filter by city or search a neighbourhood.",
+      "Use your location to find nearby clubs, or choose from the list.",
+      "Switch between English and Gujarati and browse the rules of five games."
     ],
     "status": "Client project",
     "shots": [
       "assets/snooker.webp"
     ],
     "shotCaption": "Actual website · Animated club introduction",
-    "brief": "Give a multi-location club network one distinctive home and a useful branch finder.",
-    "tryIt": "Watch or skip the intro, then explore the club locations and directions."
+    "linkLabel": "Find a club"
   },
   {
     "n": "Little Cook Book",
     "g": "m",
-    "kind": "Vegetarian recipe collection",
+    "kind": "A cookbook that adjusts to your table",
     "u": "https://littlecookbook.food/",
     "bg": "#fbf2dc",
     "fg": "#873e29",
     "line": "From the recipe shelf",
-    "t": [
-      "Recipes",
-      "Meal planning"
-    ],
-    "d": "A vegetarian cookbook with step-by-step recipes.",
+    "d": "Pick dinner, add it to the week’s plan and take the shopping list to the store. Back in the kitchen, cook through the recipe one step at a time.",
     "f": [
-      "Browse recipes by chapter",
-      "Save favourites and plan meals",
-      "Build a weekly shopping list"
+      "Match recipes against ingredients already in the kitchen.",
+      "Scale ingredient amounts by serving count and tick them off as you cook.",
+      "Follow a reel to its written recipe, or let Pip pick dinner."
     ],
     "status": "Live website",
-    "linkLabel": "Open Little Cook Book"
+    "linkLabel": "Open the kitchen"
   },
   {
     "n": "Shraddha Yoga Space",
     "g": "m",
-    "kind": "Yoga studio & trial enquiries",
+    "kind": "Seven class times and a first visit",
     "u": "https://shraddhayoga.space",
     "bg": "#dfe8d8",
     "fg": "#2d3b2a",
     "line": "Make yoga part of your life",
-    "t": [
-      "Class schedules",
-      "Memberships",
-      "Trial enquiries"
-    ],
-    "d": "A website for a yoga studio in Isanpur. Visitors can meet the instructor, check class times, compare memberships and ask about a trial class.",
+    "d": "A first-time visitor can choose a regular or weight-loss class, compare membership terms and ask the Isanpur studio about a free trial before committing.",
     "f": [
-      "Regular and weight-loss yoga schedules",
-      "Membership prices and longer-plan savings",
-      "Instructor story and studio photography",
-      "WhatsApp enquiries and guidance for a first session"
+      "Compare seven one-hour regular batches across morning and evening.",
+      "Check fees across four-, eight- and twelve-month plans.",
+      "See the studio and read what to expect before the first session."
     ],
     "u2": 1,
     "status": "Client website",
@@ -411,227 +387,177 @@ var P=[
       "assets/yoga.webp"
     ],
     "shotCaption": "Actual website · Studio homepage",
-    "brief": "Help a new visitor understand the studio, compare classes and enquire about a trial.",
-    "tryIt": "Find a suitable batch, compare membership options and explore the trial enquiry."
+    "linkLabel": "Explore classes"
   },
   {
     "n": "Unique Ideas",
     "g": "m",
-    "kind": "Handcrafted resin-art catalogue",
+    "kind": "From a handmade piece to a custom brief",
     "u": "https://loganxaaryan-a11y.github.io/unique-ideas/",
     "bg": "#faf7f1",
     "fg": "#5a3b12",
     "line": "Made by hand. Made for you.",
-    "t": [
-      "Product presentation",
-      "Catalogue",
-      "Custom enquiries"
-    ],
-    "d": "A catalogue of handmade resin art and gifts. Browse the finished pieces and message the maker about a custom order.",
+    "d": "A photo clock and a resin initial ask different things of their maker. The catalogue lets a buyer start with a finished piece, then describe the occasion, personalisation and date in one enquiry.",
     "f": [
-      "Filterable collection of finished pieces",
-      "Product-led presentation for handcrafted work",
-      "Personalised enquiries through WhatsApp",
-      "Concept designs distinguished from finished work"
+      "Filter the collection by the kind of gift.",
+      "See which designs are finished pieces and which are concepts.",
+      "Review the request before opening WhatsApp to discuss it with the maker."
     ],
-    "status": "Client website · Domain pending"
+    "status": "Client website · Domain pending",
+    "linkLabel": "Browse the pieces"
   },
   {
     "n": "Vantage",
     "g": "m",
-    "kind": "Chauffeur-service website concept",
+    "kind": "A chauffeur quote built around the itinerary",
     "u": "https://loganxaaryan-a11y.github.io/vantage/",
     "bg": "#0e1a2b",
     "fg": "#e6c98a",
     "line": "Arrive beyond expectation",
-    "t": [
-      "Service design",
-      "Fleet presentation",
-      "Quote journey"
-    ],
-    "d": "A website concept for a chauffeur service in Vancouver and Whistler. Visitors can explore the cars and services, enter their trip details and request a quote.",
+    "d": "An airport pickup and a wedding party need different cars. This Vancouver and Whistler concept puts passenger count, luggage and the occasion alongside the fleet before asking for a quote.",
     "f": [
-      "Airport, wedding, corporate and VIP service pages",
-      "Fleet categories to explore before enquiring",
-      "Journey details prepared for a WhatsApp quote request",
-      "A quote-based experience without online payment"
+      "Compare vehicle classes against party size.",
+      "Set a pickup date, time, origin and destination.",
+      "Carry the trip details into a WhatsApp quote request."
     ],
-    "status": "Concept"
+    "status": "Concept",
+    "linkLabel": "Explore the fleet"
   },
   {
     "n": "The Salon",
     "g": "m",
-    "kind": "Salon website concept",
+    "kind": "A consultation-led hair studio",
     "u": "https://loganxaaryan-a11y.github.io/laymon-hair-salon/",
     "bg": "#f4f4f2",
     "fg": "#1b1b1b",
     "line": "Appointment-led hair studio",
-    "t": [
-      "Service catalogue",
-      "Local business",
-      "Reusable design"
-    ],
-    "d": "A website concept for a Toronto hair studio, with services, salon details and an appointment enquiry.",
+    "d": "The Toronto salon concept organises services around what a guest wants to change, from colour and dimension to texture or length. Visitors can narrow down the service before contacting the studio.",
     "f": [
-      "Hair, colour and beauty-service presentation",
-      "A visual direction for an appointment-led business",
-      "Adaptable structure for a salon's services and branding"
+      "Explore balayage, highlights and colour alongside texture services.",
+      "Read what an extension or braid consultation covers.",
+      "Open an appointment enquiry or call the studio from the page."
     ],
-    "status": "Concept"
+    "status": "Concept",
+    "linkLabel": "Explore the studio"
   },
   {
     "n": "Denyse Clara",
     "g": "m",
-    "kind": "Personal brand & community",
+    "kind": "An editorial profile for a community advocate",
     "u": "https://denyseclaracares.ca",
     "bg": "#4b2536",
     "fg": "#f6e8ee",
     "line": "Rooted in community",
-    "t": [
-      "Personal brand",
-      "Storytelling",
-      "Community"
-    ],
-    "d": "A personal website for a social worker, advocate and student leader in Toronto. It shares her background, community work and leadership experience.",
+    "d": "Seven greetings introduce Denyse’s site. The profile then traces the connection between frontline social service, workplace advocacy and a seat at the governance table.",
     "f": [
-      "A multilingual welcome",
-      "Space for her story, work and leadership",
-      "A visual identity shaped around community and advocacy"
+      "Each greeting identifies its language or community.",
+      "Leadership roles sit alongside the issues Denyse works on.",
+      "Direct contact routes for professional and community enquiries."
     ],
-    "status": "Client website"
+    "status": "Client website",
+    "linkLabel": "Read the profile"
   },
   {
     "n": "Stashbook",
     "g": "p",
-    "kind": "Craft-cannabis discovery & journal",
+    "kind": "A personal tasting journal for craft flower",
     "u": "https://stashbook.xyz/",
     "bg": "#17251b",
     "fg": "#d6e7c3",
     "line": "A journal of your own taste",
-    "t": [
-      "Product discovery",
-      "Personal journal",
-      "Catalogue"
-    ],
-    "d": "A cannabis catalogue and tasting journal inspired by my work in retail. Find products, save favourites and keep notes and ratings so you remember what you liked.",
+    "d": "A product catalogue built from retail experience. A saved flower is something to try. A journal entry records what a particular batch was actually like.",
     "f": [
-      "Explore flower, brand and product details",
-      "Keep saved products separate from rated entries",
-      "Record photos, ratings and batch notes",
-      "An evolving catalogue with ongoing data-quality work"
+      "Explore products by brand and inspect terpene details.",
+      "Keep a photo, rating and batch notes together.",
+      "Usage reports exclude journal content and honour the browser’s privacy signal."
     ],
-    "status": "Independent product · Beta"
+    "status": "Independent product · Beta",
+    "linkLabel": "Explore Stashbook"
   },
   {
     "n": "Binge",
     "g": "p",
-    "kind": "Entertainment discovery & tracking",
+    "kind": "One watchlist across film, TV and anime",
     "u": "https://binge-logan-d475.vercel.app",
     "bg": "#000000",
     "fg": "#ffffff",
     "line": "Discover and track what to watch",
-    "t": [
-      "Discovery",
-      "Watch tracking",
-      "Data integration"
-    ],
-    "d": "A place to find movies, TV shows and anime, compare ratings and keep a watchlist.",
+    "d": "Binge brings movie and television records together with anime listings and streaming availability. Look up a title, compare ratings and keep it for later.",
     "f": [
-      "Movies, television and anime in one interface",
-      "Personal watch tracking",
-      "Exploration of streaming-availability information"
+      "Cross-reference TMDB, AniList and TVmaze records.",
+      "Surface new seasons and upcoming episodes from air dates.",
+      "Check streaming options and save titles to a personal watchlist."
     ],
     "status": "Independent project",
-    "linkLabel": "Explore the project"
+    "linkLabel": "Find something to watch"
   },
   {
     "n": "A Dot",
     "g": "p",
-    "kind": "Interactive play & reflection",
+    "kind": "Eight games that remember how you played",
     "u": "https://loganxaaryan-a11y.github.io/a-dot/",
     "bg": "#fafaf7",
     "fg": "#111111",
     "line": "Eight games, one observed run",
-    "t": [
-      "Game design",
-      "Interaction",
-      "Personalised report"
-    ],
-    "d": "Eight short games that look at how you make choices and adapt as you play. At the end, you get a downloadable report based on your session. It’s a game, and the results are for personal reflection.",
+    "d": "A maze, a memory sequence and a tracking task ask different things of the player. A Dot turns the run into a five-spectrum portrait you can trace back to the choices behind it.",
     "f": [
-      "Eight short interactive games",
-      "Observations linked to actions during play",
-      "A downloadable reflection report",
-      "No diagnostic claims"
+      "Record voluntary stakes, routes and recovery after errors.",
+      "Inspect the raw telemetry under each room. Skipped rooms stay unscored.",
+      "Download the session report or copy the underlying data."
     ],
-    "status": "Interactive experiment"
+    "status": "Interactive experiment",
+    "linkLabel": "Play a run"
   },
   {
     "n": "Dream Portals",
     "g": "p",
-    "kind": "Ambient audio experiences",
+    "kind": "Ten places to listen in the dark",
     "u": "https://loganxaaryan-a11y.github.io/dream-portals/",
     "bg": "#000000",
     "fg": "#b9c4ff",
     "line": "Tap a destination and close your eyes",
-    "t": [
-      "Audio experience",
-      "Atmosphere",
-      "Interaction"
-    ],
-    "d": "Audio journeys for winding down. Take a bus to the moon or spend a quiet night in a lighthouse, with narration and background sounds to settle into.",
+    "d": "A lighthouse has distant surf. A train has rain on the roof and a rhythm underfoot. Each destination has its own synthesised soundscape, built with Web Audio and gradually faded to silence.",
     "f": [
-      "A collection of themed ambient journeys",
-      "Soundscapes that fade towards silence",
-      "Optional body-unwind and mind-shuffle experiences"
+      "Switch between a black sleep screen and ambient light.",
+      "Adjust brightness and gentle motion independently.",
+      "Extend a journey with a three-minute body unwind or five-minute mind shuffle."
     ],
-    "status": "Independent product"
+    "status": "Independent product",
+    "linkLabel": "Choose a destination"
   },
   {
     "n": "Synthesize",
     "g": "p",
-    "kind": "News discovery & research briefs",
+    "kind": "A news desk organised by subject",
     "u": "https://curatednewslawl.grok.me",
     "bg": "#12110e",
     "fg": "#e8dfc9",
     "line": "Filed by what the story is about",
-    "t": [
-      "News discovery",
-      "Source references",
-      "AI-assisted research"
-    ],
-    "d": "A news desk for browsing stories by topic. I’m also working on briefs that link back to their sources and explain what is still uncertain. The link opens an earlier version.",
+    "d": "A chip story can turn up in a market feed or a general newspaper. Synthesize groups coverage by subject and keeps the publisher, date and discovery route beside each headline.",
     "f": [
-      "Topic and sector-based news exploration",
-      "New briefing work with dated source selection",
-      "Distinct labels for AI briefs and source digests",
-      "Deployment verification remains part of the work"
+      "Browse six desks, from technology and crypto to oil and minerals.",
+      "Drill into narrower subjects such as chips.",
+      "Follow the original coverage or search across the desk."
     ],
     "status": "In development",
-    "linkLabel": "View the earlier demo"
+    "linkLabel": "Open the sector desk"
   },
   {
     "n": "DIVERGE",
     "g": "p",
-    "kind": "Market research & paper tracking",
+    "kind": "A paper-trading log with a visible history",
     "u": "https://diverge.grok.me",
     "bg": "#090b0e",
     "fg": "#7cf5c8",
     "line": "Fade the extreme when volume is thin",
-    "t": [
-      "Research tools",
-      "Paper tracking",
-      "Validation"
-    ],
-    "d": "A project for recording market ideas and checking how they turn out through paper trading. It’s still in development, and the link opens an earlier demo.",
+    "d": "DIVERGE keeps recorded calls beside the market tape. You can follow a paper position from its timestamped entry through its latest mark or recorded exit.",
     "f": [
-      "Rule-based research and recorded calls",
-      "Outcome tracking and review",
-      "Separate work on data integrity and validation",
-      "Research in progress; no real-money execution"
+      "Filter the desk between crypto and stocks.",
+      "Compare the last closed hour with the preceding twenty.",
+      "Read a stock’s daily move against the median stock move."
     ],
     "status": "Research · Paper only",
-    "linkLabel": "View the earlier demo"
+    "linkLabel": "Inspect the log"
   }
 ];
 function E(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
@@ -688,24 +614,60 @@ var S={
 "Unique Ideas":function(){return '<div style="width:54%;aspect-ratio:1;border-radius:50%;border:7px solid currentColor;position:relative;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.7),rgba(90,59,18,.08))"><i style="position:absolute;left:50%;top:50%;width:3px;height:40%;margin-left:-1.5px;background:currentColor;transform-origin:50% 0;animation:rot 12s linear infinite"></i><i style="position:absolute;left:50%;top:50%;width:3px;height:28%;margin-left:-1.5px;background:currentColor;transform-origin:50% 0;animation:rot 144s linear infinite"></i></div>'},
 "Vantage":function(){return '<svg viewBox="0 0 200 150" style="width:92%"><path d="M20 118C70 130 90 40 178 32" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 5" opacity=".6"/><circle r="5" fill="currentColor"><animateMotion dur="5s" repeatCount="indefinite" path="M20 118C70 130 90 40 178 32"/></circle><text x="12" y="140" font-size="10" fill="currentColor">YVR</text><text x="138" y="22" font-size="10" fill="currentColor">Whistler</text></svg>'},
 "Little Cook Book":function(){
-  return '<svg viewBox="0 0 240 150" width="88%" height="88%" aria-hidden="true"><g transform="rotate(-4 120 75)"><rect x="23" y="22" width="194" height="114" rx="7" fill="#914b35"/><path d="M29 26Q73 13 119 30Q165 13 211 26V125Q165 113 119 129Q75 113 29 125Z" fill="#fffaf0" stroke="#a16f52"/><path d="M119 31V127" stroke="#cdb699"/><g fill="currentColor" font-family="Georgia,serif"><text x="39" y="68" font-size="16"><tspan>What’s for</tspan><tspan x="39" dy="20" font-style="italic">dinner?</tspan></text></g><path d="M136 76h57q-4 22-28 23t-29-23" fill="#ad5a36"/><g class="cook-steam" fill="none" stroke="#986542" stroke-width="2" stroke-linecap="round"><path d="M155 68c-8-8 6-10 0-18m12 18c-8-8 6-10 0-18m12 18c-8-8 6-10 0-18"/></g></g></svg>';
+  return `<svg viewBox="0 0 320 220" width="100%" height="100%" aria-hidden="true">
+    <g transform="rotate(-3 160 110)">
+      <path d="M27 52 Q91 35 160 53 Q226 35 293 52 L293 176 Q232 163 160 182 Q88 164 27 176Z" fill="#bfa794" opacity=".55" transform="translate(0 5)"/>
+      <path d="M26 48 Q91 32 160 52 Q227 32 294 48 V175 Q226 162 160 180 Q90 162 26 175Z" fill="#884432"/>
+      <path d="M32 44 Q93 30 160 49 V172 Q94 155 32 168Z" fill="#fff9e9"/>
+      <path d="M160 49 Q228 30 288 44 V168 Q227 155 160 172Z" fill="#fbefd7"/>
+      <path d="M160 49 V171" stroke="#c6ae89" stroke-width="1.5"/>
+      <path d="M254 40 L254 67 L260 62 L266 66 L266 41Z" fill="#9b4935"/>
+      <g text-anchor="middle" font-family="Georgia,serif" font-weight="400" fill="#723827">
+        <text x="94" y="97" font-size="19">What’s for</text>
+        <text x="93" y="125" font-size="31" font-style="italic">dinner?</text>
+      </g>
+      <ellipse cx="222" cy="132" rx="28" ry="3" fill="#d5bd99"/>
+      <path d="M190 105 Q221 110 254 105 Q249 127 227 130 H216 Q195 125 190 105Z" fill="#b46246"/>
+      <ellipse cx="222" cy="105" rx="32" ry="5" fill="#884432"/>
+      <ellipse cx="222" cy="105" rx="27" ry="2.5" fill="#d99a53"/>
+      <g class="cook-steam" fill="none" stroke="#a86e4b" stroke-width="1.8" stroke-linecap="round">
+        <path d="M211 96c-7-8 6-11 1-19m10 17c-7-9 7-13 1-23m10 25c-6-7 5-10 1-16"/>
+      </g>
+    </g></svg>`;
 },
-"The Salon":function(){var s='<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:7px;width:78%">';for(var i=0;i<12;i++)s+='<i style="height:26px;border:1.5px solid;border-radius:7px;'+(i%3==1?'animation:fill 6s infinite;animation-delay:'+i*.45+'s':'')+'"></i>';return s+'</div>'},
+"The Salon":function(){
+  var swatches = ['#362a26','#5a3e33','#825b47','#ad8261','#c69f76'];
+  var fan = swatches.map(function(tone, i) {
+    return '<g transform="rotate('+(-45+i*17)+' 150 140)"><rect x="134" y="35" width="32" height="110" rx="3" fill="#fcf8f0" stroke="#b6aaa0"/><rect x="137" y="39" width="26" height="69" rx="1" fill="'+tone+'"/></g>';
+  }).join('');
+  return '<svg viewBox="0 0 300 190" width="100%" height="100%" aria-hidden="true"><g class="tone-fan">'+fan+'<circle cx="150" cy="137" r="3" fill="#52453c"/></g><text x="150" y="170" text-anchor="middle" font-family="Georgia,serif" font-size="15" font-weight="400">Colour consultation</text></svg>';
+},
 "Denyse Clara":function(){return ["Hello","Bonjour","Hola","Aaniin"].map(function(w,i){return '<span class="w" style="font-size:2.2rem;font-weight:800;animation:cyc 10s infinite;animation-delay:'+i*2.5+'s">'+w+'</span>'}).join("")},
-"Binge":function(){var s="";for(var i=0;i<16;i++)s+='<i style="flex:none;width:54px;height:80px;border-radius:7px;background:hsl('+(i%8)*47+',50%,42%)"></i>';return '<div style="display:flex;gap:10px;width:max-content;animation:mq 14s linear infinite">'+s+'</div>'},
+"Binge":function(){
+  return `<svg viewBox="0 0 300 190" width="100%" height="100%" aria-hidden="true"><g transform="rotate(-8 150 95)">
+    <rect x="44" y="50" width="216" height="102" rx="6" fill="#ba6945" transform="rotate(15 150 100)"/>
+    <path d="M48 46h204v38c-10 0-10 16 0 16v42H48v-42c10 0 10-16 0-16z" fill="#f5ddb3"/>
+    <path d="M201 48v92" stroke="#9c735e" stroke-dasharray="3 3"/>
+    <g fill="#34272e" font-weight="400"><text x="64" y="71" font-family="monospace" font-size="9" letter-spacing="2">WATCHLIST</text>
+    <text x="62" y="103" font-family="Georgia,serif" font-size="25" font-style="italic">Movie night</text>
+    <text x="64" y="126" font-family="monospace" font-size="9">FILM / TV / ANIME</text></g>
+    <g stroke="#34272e" stroke-width="2"><path d="M213 65v57m4-57v57m8-57v57m3-57v57m5-57v57m6-57v57"/></g></g></svg>`;
+},
 "A Dot":function(){var q="M25 25H55V115H85V55H115V125H145V45H175";return '<svg viewBox="0 0 200 150" style="width:90%"><path d="M10 10H190V140H10Z M40 10V90M70 40V140M100 10V70M130 60V140M160 10V100" fill="none" stroke="currentColor" stroke-width="2" opacity=".25"/><path pathLength="400" d="'+q+'" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="400" style="animation:dr 7s linear infinite"/><circle r="5" fill="currentColor"><animateMotion dur="7s" repeatCount="indefinite" path="'+q+'"/></circle></svg>'},
 "Dream Portals":function(){var s="";for(var i=0;i<16;i++)s+='<circle cx="'+(5+i*53%190)+'" cy="'+(5+i*29%80)+'" r="1.3" fill="currentColor" style="animation:tw 3s infinite;animation-delay:'+i*.3+'s"/>';return '<svg viewBox="0 0 200 150" style="width:100%;height:100%">'+s+'<circle cx="160" cy="38" r="18" fill="currentColor" opacity=".9"/><g><rect width="26" height="12" rx="3" fill="currentColor"/><rect x="4" y="3" width="5" height="4" fill="#000"/><rect x="11" y="3" width="5" height="4" fill="#000"/><rect x="18" y="3" width="5" height="4" fill="#000"/><animateTransform attributeName="transform" type="translate" values="10 120;140 48" dur="9s" repeatCount="indefinite"/></g></svg>'},
-"Synthesize":function(){var t="BTC +0.6% &nbsp;&nbsp; ETH +0.6% &nbsp;&nbsp; SOL -0.1% &nbsp;&nbsp; QQQ -3.5% &nbsp;&nbsp; XLE +1.9% &nbsp;&nbsp; NVDA -4.2% &nbsp;&nbsp; ";return '<div style="position:absolute;top:14%;left:0;right:0;overflow:hidden;font-size:.74rem;white-space:nowrap"><div style="width:max-content;animation:mq 16s linear infinite">'+t+t+'</div></div><div style="width:78%;display:grid;gap:11px;margin-top:18%">'+["Technology","Crypto","Oil"].map(function(x,i){return '<div class="pp" style="animation-delay:'+i*.6+'s;display:flex;gap:8px;align-items:center;font-size:.8rem"><b style="width:72px">'+x+'</b><i style="flex:1;height:6px;border-radius:3px;background:currentColor;opacity:.4"></i></div>'}).join("")+'</div>'},
+"Synthesize":function(){
+  return `<svg viewBox="0 0 300 190" width="100%" height="100%" aria-hidden="true"><g transform="rotate(-3 150 95)">
+    <rect x="44" y="29" width="212" height="136" rx="2" fill="#d4d0bc"/>
+    <rect x="40" y="24" width="212" height="136" rx="2" fill="#f5f2df"/>
+    <g fill="#202c2b"><text x="54" y="46" font-family="monospace" font-size="8" letter-spacing="2">SYNTHESIZE</text>
+    <text x="53" y="74" font-family="Georgia,serif" font-size="25">Sector desk</text>
+    <path d="M54 83h183v2H54z"/><g font-family="Georgia,serif" font-size="13"><text x="55" y="103">Technology</text><text x="55" y="125">Markets</text><text x="55" y="146">Minerals</text></g>
+    <g stroke="#819088"><path d="M139 98h86m-86 5h55m-55 17h67m-67 5h77m-77 16h85m-85 5h42"/></g></g></g></svg>`;
+},
 "DIVERGE":function(){return '<svg viewBox="0 0 200 150" style="width:92%"><path pathLength="400" d="M8 110L30 98L50 112L75 74L98 84L125 36L148 52L192 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="400" style="animation:dr 6s ease-out infinite"/><circle cx="125" cy="36" r="6" fill="none" stroke="currentColor" stroke-width="2" style="animation:bl 6s infinite"/><text x="133" y="30" font-size="10" fill="currentColor" style="animation:bl 6s infinite">fade</text></svg>'},
 "Stashbook":function(){return '<span style="position:absolute;top:18%;font-size:.8rem">Rate this batch</span><div style="display:flex;gap:6px;font-size:1.9rem">'+[1,2,3,4,5].map(function(i){return '<span class="pp" style="animation-delay:'+i*.5+'s">★</span>'}).join("")+'</div><span style="position:absolute;bottom:16%;font-size:.8rem">Discover · save · rate</span>'}
 };
 function scene(p){var f=S[p.n];return '<div class="sc" style="background:'+p.bg+';color:'+p.fg+'" role="img" aria-label="Animated illustration for the '+E(p.n)+' site">'+(f?f():'<span style="padding:24px;font-size:1.4rem;text-align:center">'+E(p.line)+'</span>')+'</div>'}
-function mock(p,v){if(!v)return scene(p);
-var f=p.fg,s='<svg viewBox="0 0 400 300" role="img" aria-label="Illustration of the '+E(p.n)+' site" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="300" fill="'+p.bg+'"/><rect x="20" y="18" width="64" height="9" rx="4" fill="'+f+'"/><rect x="250" y="19" width="30" height="7" rx="3" fill="'+f+'" opacity=".4"/><rect x="292" y="19" width="30" height="7" rx="3" fill="'+f+'" opacity=".4"/><rect x="334" y="14" width="46" height="16" rx="8" fill="'+f+'"/>';
-if(v==0){var z=Math.max(20,Math.min(40,330/(p.n.length*.56)));s+='<circle cx="350" cy="230" r="110" fill="'+f+'" opacity=".1"/><text x="24" y="120" font-family="Inter,system-ui,sans-serif" font-weight="800" font-size="'+z+'" fill="'+f+'">'+E(p.n)+'</text><text x="24" y="150" font-family="system-ui,sans-serif" font-size="13" fill="'+f+'" opacity=".8">'+E(p.line)+'</text><rect x="24" y="178" width="118" height="36" rx="18" fill="'+f+'"/><rect x="24" y="250" width="352" height="2" fill="'+f+'" opacity=".25"/>'}
-else if(v==1){for(var i=0;i<3;i++){s+='<rect x="'+(24+i*120)+'" y="62" width="108" height="110" rx="12" fill="'+f+'" opacity=".16"/><rect x="'+(24+i*120)+'" y="184" width="70" height="9" rx="4" fill="'+f+'"/><rect x="'+(24+i*120)+'" y="202" width="100" height="7" rx="3" fill="'+f+'" opacity=".45"/>'}s+='<rect x="24" y="236" width="352" height="36" rx="18" fill="'+f+'" opacity=".2"/>'}
-else{s+='<rect x="24" y="70" width="230" height="46" rx="16" fill="'+f+'" opacity=".2"/><rect x="146" y="130" width="230" height="46" rx="16" fill="'+f+'"/><rect x="24" y="190" width="200" height="46" rx="16" fill="'+f+'" opacity=".2"/><rect x="24" y="258" width="352" height="26" rx="13" fill="'+f+'" opacity=".12"/>'}
-return s+'</svg>'}
 function sty(p){return '--pb:'+p.bg+';--pf:'+p.fg}
 function box(id,g){document.getElementById(id).innerHTML=P.map(function(p,i){return p.g!==g?"":(g=="f"?
 '<button class="feat'+(p.n==="The Tech Source Hub"?" tech-source-card":"")+'" type="button" data-i="'+i+'" style="'+sty(p)+'">'+scene(p)+'<span class="project-status">'+E(p.status)+'</span><h3>'+E(p.n)+'</h3><p class="k">'+E(p.kind)+'</p></button>':
@@ -718,8 +680,13 @@ var R=document.documentElement;
 watchScenes(document);
 var dl=document.getElementById("dlg"),mc=document.getElementById("mc");
 function open(i){var p=P[i];if(sceneObserver)mc.querySelectorAll(".sc").forEach(function(el){sceneObserver.unobserve(el)});
-var visual=p.shots?'<figure class="site-preview"><div class="preview-bar"><span aria-hidden="true">● ● ●</span><span>'+E(p.n)+'</span><span>Website preview</span></div><a href="'+p.u+'" target="_blank" rel="noopener" aria-label="Visit '+E(p.n)+' website"><img src="'+p.shots[0]+'" width="1440" height="1000" alt="'+E(p.shotCaption)+' for '+E(p.n)+'"></a><figcaption>'+E(p.shotCaption)+' · Captured November 2026</figcaption></figure>':'<div class="gal"><div>'+mock(p,0)+'</div></div><p class="preview-note">Animated project illustration. '+(p.u?'Open the project to explore the actual interface.':'Public demo not yet available.')+'</p>';
-mc.innerHTML='<div class="mh" style="'+sty(p)+'"><p class="modal-status">'+E(p.status)+'</p><h2 id="mt">'+E(p.n)+'</h2><p>'+E(p.kind)+'</p><button class="x" type="button" aria-label="Close" id="cl">×</button></div><div class="mb">'+visual+'<div class="cols"><div>'+(p.brief?'<h3 class="detail-label">The brief</h3><p class="brief">'+E(p.brief)+'</p><h3 class="detail-label">The approach</h3>':'')+'<p class="d">'+E(p.d)+'</p><ul class="ch">'+p.t.map(function(t){return "<li>"+E(t)+"</li>"}).join("")+'</ul></div><div><h3 class="detail-label">What’s inside</h3><ul class="fl">'+p.f.map(function(x){return "<li>"+E(x)+"</li>"}).join("")+'</ul></div></div>'+(p.tryIt?'<div class="try-flow"><span class="detail-label">Try the experience</span><p>'+E(p.tryIt)+'</p></div>':'')+(p.u?'<a class="vis" href="'+p.u+'" target="_blank" rel="noopener">'+E(p.linkLabel||'Explore the website')+' <span aria-hidden="true">↗</span></a>':'')+'</div>';
+var visual = p.shots
+  ? '<figure class="case-visual"><a href="'+E(p.u)+'" target="_blank" rel="noopener" aria-label="Visit '+E(p.n)+'"><img src="'+E(p.shots[0])+'" alt="'+E(p.shotCaption)+' for '+E(p.n)+'"></a></figure>'
+  : '<div class="case-visual">'+scene(p)+'</div>';
+var details = p.f.map(function(item){return '<li>'+E(item)+'</li>'}).join('');
+mc.innerHTML = '<div class="mh" style="'+sty(p)+'"><p class="modal-status">'+E(p.status)+'</p><h2 id="mt">'+E(p.n)+'</h2><button class="x" type="button" aria-label="Close" id="cl">×</button></div>'
+  + '<div class="case-layout" style="'+sty(p)+'"><div class="case-copy"><p class="d">'+E(p.d)+'</p><a class="vis" href="'+E(p.u)+'" target="_blank" rel="noopener">'+E(p.linkLabel)+' <span aria-hidden="true">↗︎</span></a></div>'
+  + visual+'<ul class="fl" aria-label="Project features">'+details+'</ul></div>';
 document.getElementById("cl").onclick=function(){dl.close()};dl.showModal();dl.scrollTop=0;watchScenes(mc)}
 document.addEventListener("click",function(e){var b=e.target.closest("[data-i]");if(b)open(+b.getAttribute("data-i"));else if(e.target===dl)dl.close()});
 var R=document.documentElement;try{var s=localStorage.getItem("theme");if(s)R.setAttribute("data-theme",s)}catch(x){}
